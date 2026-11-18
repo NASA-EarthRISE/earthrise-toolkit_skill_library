@@ -1,0 +1,41 @@
+{
+  "skill": "sco-05-needs-assessment",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Here are notes from 4 interviews with district water managers. Code and prioritize the needs.",
+      "files": [],
+      "expectations": [
+        "Produces codes, 3–7 themes, need statements mapped to decisions",
+        "Each need has Value, Feasibility, and Do now / Do next / Nice to have / Avoid"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Write an interview guide for agricultural extension officers.",
+      "files": [],
+      "expectations": [
+        "Covers the 10 sections with core prompt plus probes"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Run Needs Assessment in fast mode, we have no interviews yet.",
+      "files": [],
+      "expectations": [
+        "Tags all rows AI-DRAFT and ends with a validation plan"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Draw our information flow from forecast to households.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to sco-06-information-chain-analysis)"
+      ]
+    }
+  ]
+}

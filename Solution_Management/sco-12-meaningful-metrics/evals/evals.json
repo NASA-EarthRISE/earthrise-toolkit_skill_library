@@ -1,0 +1,42 @@
+{
+  "skill": "sco-12-meaningful-metrics",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Build our indicator matrix from this results framework.",
+      "files": [],
+      "expectations": [
+        "Table has exactly the 15 template columns in order",
+        "Rows grouped under Solution-Level Expected Outcome headings",
+        "CSV block included"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Is '# of trainings' a good outcome metric?",
+      "files": [],
+      "expectations": [
+        "Explains it is an Input metric and proposes an outcome alternative"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Fill baselines for all indicators.",
+      "files": [],
+      "expectations": [
+        "Uses TBD with collection plan where baseline unknown"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Calculate the dollar value of avoided flood damage.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to sco-03-economic-impact-assessment)"
+      ]
+    }
+  ]
+}

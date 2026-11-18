@@ -190,6 +190,548 @@
       },
       "data_sensitivity": "internal",
       "path": "Solution_Management/partner-status-brief"
+    },
+    {
+      "id": "sco-00-trust-marker",
+      "title": "TRUST Marker for Co-development",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Scores co-development depth on five TRUST dimensions (0\u20134) with evidence, targets, and gap-closing actions.",
+      "tags": [
+        "trust-marker",
+        "co-development",
+        "self-assessment",
+        "reflection",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "project.plan",
+        "report.md"
+      ],
+      "outputs": [
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [],
+        "downstream": [
+          "sco-toolkit-orchestrator"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-00-trust-marker"
+    },
+    {
+      "id": "sco-01-designing-for-impact",
+      "title": "Designing for Impact",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Builds the if/then pathway, results framework (inputs\u2192outputs\u2192outcomes\u2192impact), and assumption record.",
+      "tags": [
+        "results-framework",
+        "theory-of-change",
+        "impact",
+        "assumptions",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "partner.request"
+      ],
+      "outputs": [
+        "project.plan"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-05-needs-assessment",
+          "sco-04-stakeholder-mapping"
+        ],
+        "downstream": [
+          "sco-10-implementation-monitoring-plan",
+          "sco-12-meaningful-metrics",
+          "sco-06-information-chain-analysis",
+          "sco-07-user-centered-design"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-01-designing-for-impact"
+    },
+    {
+      "id": "sco-02-capturing-communicating-impact",
+      "title": "Capturing & Communicating Impact",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Plans audiences and evidence for impact communication and drafts NASA-format products (highlight, use case, case study, blog, press release).",
+      "tags": [
+        "impact",
+        "communication",
+        "use-case",
+        "case-study",
+        "outreach",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "project.plan",
+        "metrics.json",
+        "report.md"
+      ],
+      "outputs": [
+        "stakeholder.brief",
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-12-meaningful-metrics",
+          "sco-03-economic-impact-assessment",
+          "sco-10-implementation-monitoring-plan"
+        ],
+        "downstream": [
+          "partner-status-brief"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-02-capturing-communicating-impact"
+    },
+    {
+      "id": "sco-03-economic-impact-assessment",
+      "title": "Economic Impact Assessment",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Scopes an EIA (high-level vs in-depth), plans baseline/attribution data, and computes transparent value estimates with sensitivity ranges.",
+      "tags": [
+        "economic-impact",
+        "roi",
+        "value-of-information",
+        "cost-benefit",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "partner.request",
+        "project.plan"
+      ],
+      "outputs": [
+        "metrics.json",
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-01-designing-for-impact",
+          "sco-05-needs-assessment"
+        ],
+        "downstream": [
+          "sco-12-meaningful-metrics",
+          "sco-10-implementation-monitoring-plan",
+          "sco-02-capturing-communicating-impact"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-03-economic-impact-assessment"
+    },
+    {
+      "id": "sco-04-stakeholder-mapping",
+      "title": "Stakeholder Mapping & Analysis",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Identifies, categorizes, and scores stakeholders (influence/interest 1\u20134) and assigns Collaborate/Align/Validate/Monitor strategies.",
+      "tags": [
+        "stakeholders",
+        "engagement",
+        "influence-interest",
+        "partners",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "partner.request"
+      ],
+      "outputs": [
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-01-designing-for-impact"
+        ],
+        "downstream": [
+          "sco-05-needs-assessment",
+          "sco-06-information-chain-analysis",
+          "sco-10-implementation-monitoring-plan",
+          "sco-11-adoption-sustainability"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-04-stakeholder-mapping"
+    },
+    {
+      "id": "sco-05-needs-assessment",
+      "title": "Needs Assessment",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Captures, codes, themes, and prioritizes user needs per user group and translates them into draft EO requirements.",
+      "tags": [
+        "needs-assessment",
+        "user-research",
+        "interviews",
+        "requirements",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "report.md",
+        "partner.request"
+      ],
+      "outputs": [
+        "partner.request",
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-04-stakeholder-mapping"
+        ],
+        "downstream": [
+          "sco-01-designing-for-impact",
+          "sco-06-information-chain-analysis",
+          "sco-07-user-centered-design",
+          "sco-08-technical-requirements",
+          "sco-03-economic-impact-assessment"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-05-needs-assessment"
+    },
+    {
+      "id": "sco-06-information-chain-analysis",
+      "title": "Information Chain Analysis",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Traces one decision pathway as numbered chain links, stress-tests handoffs, prioritizes breakdowns, and assigns actions and assumptions.",
+      "tags": [
+        "information-chain",
+        "dissemination",
+        "early-warning",
+        "bottlenecks",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "partner.request",
+        "report.md"
+      ],
+      "outputs": [
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-04-stakeholder-mapping",
+          "sco-05-needs-assessment"
+        ],
+        "downstream": [
+          "sco-07-user-centered-design",
+          "sco-08-technical-requirements",
+          "sco-12-meaningful-metrics",
+          "sco-11-adoption-sustainability"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-06-information-chain-analysis"
+    },
+    {
+      "id": "sco-07-user-centered-design",
+      "title": "User-Centered Design",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Builds decision-anchored personas and runs the four-step UCD method through validation under decision conditions.",
+      "tags": [
+        "ucd",
+        "personas",
+        "usability",
+        "design-requirements",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "partner.request",
+        "report.md"
+      ],
+      "outputs": [
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-04-stakeholder-mapping",
+          "sco-05-needs-assessment",
+          "sco-06-information-chain-analysis",
+          "sco-01-designing-for-impact"
+        ],
+        "downstream": [
+          "sco-08-technical-requirements",
+          "sco-10-implementation-monitoring-plan",
+          "sco-12-meaningful-metrics",
+          "sco-11-adoption-sustainability"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-07-user-centered-design"
+    },
+    {
+      "id": "sco-08-technical-requirements",
+      "title": "Technical Requirements",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Completes the Technical Requirements Template: partner questions, data source specs, architecture, I/O, platforms, validation, capacities.",
+      "tags": [
+        "technical-requirements",
+        "architecture",
+        "data-sources",
+        "mvp",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "partner.request",
+        "report.md"
+      ],
+      "outputs": [
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-05-needs-assessment",
+          "sco-06-information-chain-analysis",
+          "sco-07-user-centered-design",
+          "sco-04-stakeholder-mapping"
+        ],
+        "downstream": [
+          "sco-09-data-governance-storage",
+          "sco-10-implementation-monitoring-plan",
+          "sco-11-adoption-sustainability"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-08-technical-requirements"
+    },
+    {
+      "id": "sco-09-data-governance-storage",
+      "title": "Data Governance & Storage Plan",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Drafts a FAIR, SPD-41a-compliant Data Governance and Storage Plan with data inventory and 15-row checklist.",
+      "tags": [
+        "data-governance",
+        "open-science",
+        "daac",
+        "metadata",
+        "fair",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "report.md"
+      ],
+      "outputs": [
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-08-technical-requirements"
+        ],
+        "downstream": [
+          "sco-10-implementation-monitoring-plan",
+          "sco-11-adoption-sustainability",
+          "reproducible-release"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-09-data-governance-storage"
+    },
+    {
+      "id": "sco-10-implementation-monitoring-plan",
+      "title": "Solution Implementation & Impact Monitoring Plan (SIIMP)",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Assembles the 15-section SIIMP from other toolkit outputs with Gantt, budget tables 1\u20135, and indicator matrix.",
+      "tags": [
+        "siimp",
+        "implementation-plan",
+        "monitoring",
+        "budget",
+        "gantt",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "project.plan",
+        "report.md",
+        "metrics.json"
+      ],
+      "outputs": [
+        "project.plan"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-01-designing-for-impact",
+          "sco-04-stakeholder-mapping",
+          "sco-06-information-chain-analysis",
+          "sco-08-technical-requirements",
+          "sco-09-data-governance-storage",
+          "sco-11-adoption-sustainability",
+          "sco-12-meaningful-metrics",
+          "sco-03-economic-impact-assessment"
+        ],
+        "downstream": [
+          "sco-02-capturing-communicating-impact",
+          "sco-00-trust-marker",
+          "partner-status-brief"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-10-implementation-monitoring-plan"
+    },
+    {
+      "id": "sco-11-adoption-sustainability",
+      "title": "Adoption & Sustainability Plan",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Drafts the Solution Adoption and Sustainability Plan sections 1\u20138 with all template tables.",
+      "tags": [
+        "adoption",
+        "sustainability",
+        "handover",
+        "transition",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "project.plan",
+        "report.md",
+        "release.notes"
+      ],
+      "outputs": [
+        "project.plan"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-04-stakeholder-mapping",
+          "sco-05-needs-assessment",
+          "sco-07-user-centered-design",
+          "sco-08-technical-requirements",
+          "sco-09-data-governance-storage"
+        ],
+        "downstream": [
+          "sco-10-implementation-monitoring-plan",
+          "sco-00-trust-marker"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-11-adoption-sustainability"
+    },
+    {
+      "id": "sco-12-meaningful-metrics",
+      "title": "Meaningful Metrics",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Develops SMART input/output/outcome/impact indicators and fills the 15-column Fillable Indicator Template.",
+      "tags": [
+        "metrics",
+        "indicators",
+        "kpi",
+        "monitoring",
+        "smart",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "project.plan",
+        "metrics.json"
+      ],
+      "outputs": [
+        "project.plan"
+      ],
+      "composes_with": {
+        "upstream": [
+          "sco-01-designing-for-impact",
+          "sco-07-user-centered-design",
+          "sco-03-economic-impact-assessment"
+        ],
+        "downstream": [
+          "sco-10-implementation-monitoring-plan",
+          "sco-02-capturing-communicating-impact"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-12-meaningful-metrics"
+    },
+    {
+      "id": "sco-toolkit-orchestrator",
+      "title": "Solution Co-Development Toolkit \u2014 Orchestrator",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Routes Earth Action solution teams to the right Co-Development Toolkit skill and tracks progress in a shared solution profile.",
+      "tags": [
+        "co-development",
+        "toolkit",
+        "earth-action",
+        "routing",
+        "solution-profile",
+        "sco-toolkit"
+      ],
+      "inputs": [
+        "partner.request"
+      ],
+      "outputs": [
+        "project.plan",
+        "issue.list"
+      ],
+      "composes_with": {
+        "upstream": [],
+        "downstream": [
+          "sco-00-trust-marker",
+          "sco-01-designing-for-impact",
+          "sco-02-capturing-communicating-impact",
+          "sco-03-economic-impact-assessment",
+          "sco-04-stakeholder-mapping",
+          "sco-05-needs-assessment",
+          "sco-06-information-chain-analysis",
+          "sco-07-user-centered-design",
+          "sco-08-technical-requirements",
+          "sco-09-data-governance-storage",
+          "sco-10-implementation-monitoring-plan",
+          "sco-11-adoption-sustainability",
+          "sco-12-meaningful-metrics"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/sco-toolkit-orchestrator"
     }
   ],
   "connections": [
@@ -205,8 +747,68 @@
     },
     {
       "from": "classification-accuracy-assessment",
+      "artifact": "metrics.json",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "metrics.json",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "metrics.json",
+      "to": "sco-12-meaningful-metrics"
+    },
+    {
+      "from": "classification-accuracy-assessment",
       "artifact": "report.md",
       "to": "partner-status-brief"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
     },
     {
       "from": "foundation-model-finetune",
@@ -217,6 +819,21 @@
       "from": "foundation-model-finetune",
       "artifact": "metrics.json",
       "to": "reproducible-release"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "metrics.json",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "metrics.json",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "metrics.json",
+      "to": "sco-12-meaningful-metrics"
     },
     {
       "from": "foundation-model-finetune",
@@ -229,6 +846,51 @@
       "to": "partner-status-brief"
     },
     {
+      "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
       "from": "pinecone-rx-fire-valuation",
       "artifact": "metrics.json",
       "to": "partner-status-brief"
@@ -240,13 +902,723 @@
     },
     {
       "from": "pinecone-rx-fire-valuation",
+      "artifact": "metrics.json",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "metrics.json",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "metrics.json",
+      "to": "sco-12-meaningful-metrics"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
       "artifact": "report.md",
       "to": "partner-status-brief"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
     },
     {
       "from": "reproducible-release",
       "artifact": "release.notes",
       "to": "partner-status-brief"
+    },
+    {
+      "from": "reproducible-release",
+      "artifact": "release.notes",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-00-trust-marker",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-00-trust-marker",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-00-trust-marker",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "sco-00-trust-marker",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "sco-00-trust-marker",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "sco-00-trust-marker",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "sco-00-trust-marker",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "sco-00-trust-marker",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-00-trust-marker",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-01-designing-for-impact",
+      "artifact": "project.plan",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-01-designing-for-impact",
+      "artifact": "project.plan",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-01-designing-for-impact",
+      "artifact": "project.plan",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-01-designing-for-impact",
+      "artifact": "project.plan",
+      "to": "sco-03-economic-impact-assessment"
+    },
+    {
+      "from": "sco-01-designing-for-impact",
+      "artifact": "project.plan",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-01-designing-for-impact",
+      "artifact": "project.plan",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-01-designing-for-impact",
+      "artifact": "project.plan",
+      "to": "sco-12-meaningful-metrics"
+    },
+    {
+      "from": "sco-02-capturing-communicating-impact",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-02-capturing-communicating-impact",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-02-capturing-communicating-impact",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "sco-02-capturing-communicating-impact",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "sco-02-capturing-communicating-impact",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "sco-02-capturing-communicating-impact",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "sco-02-capturing-communicating-impact",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "sco-02-capturing-communicating-impact",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-02-capturing-communicating-impact",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "metrics.json",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "metrics.json",
+      "to": "reproducible-release"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "metrics.json",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "metrics.json",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "metrics.json",
+      "to": "sco-12-meaningful-metrics"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-03-economic-impact-assessment",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-04-stakeholder-mapping",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "partner.request",
+      "to": "foundation-model-finetune"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "partner.request",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "partner.request",
+      "to": "sco-01-designing-for-impact"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "partner.request",
+      "to": "sco-03-economic-impact-assessment"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "partner.request",
+      "to": "sco-04-stakeholder-mapping"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "partner.request",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "partner.request",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "partner.request",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "partner.request",
+      "to": "sco-toolkit-orchestrator"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-05-needs-assessment",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-06-information-chain-analysis",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-06-information-chain-analysis",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-06-information-chain-analysis",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-06-information-chain-analysis",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "sco-06-information-chain-analysis",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "sco-06-information-chain-analysis",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "sco-06-information-chain-analysis",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "sco-06-information-chain-analysis",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-06-information-chain-analysis",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-07-user-centered-design",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-07-user-centered-design",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-07-user-centered-design",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-07-user-centered-design",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "sco-07-user-centered-design",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "sco-07-user-centered-design",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "sco-07-user-centered-design",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "sco-07-user-centered-design",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-07-user-centered-design",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-08-technical-requirements",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-08-technical-requirements",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-08-technical-requirements",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-08-technical-requirements",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "sco-08-technical-requirements",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "sco-08-technical-requirements",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "sco-08-technical-requirements",
+      "artifact": "report.md",
+      "to": "sco-09-data-governance-storage"
+    },
+    {
+      "from": "sco-08-technical-requirements",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-08-technical-requirements",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-09-data-governance-storage",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-09-data-governance-storage",
+      "artifact": "report.md",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-09-data-governance-storage",
+      "artifact": "report.md",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-09-data-governance-storage",
+      "artifact": "report.md",
+      "to": "sco-05-needs-assessment"
+    },
+    {
+      "from": "sco-09-data-governance-storage",
+      "artifact": "report.md",
+      "to": "sco-06-information-chain-analysis"
+    },
+    {
+      "from": "sco-09-data-governance-storage",
+      "artifact": "report.md",
+      "to": "sco-07-user-centered-design"
+    },
+    {
+      "from": "sco-09-data-governance-storage",
+      "artifact": "report.md",
+      "to": "sco-08-technical-requirements"
+    },
+    {
+      "from": "sco-09-data-governance-storage",
+      "artifact": "report.md",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-09-data-governance-storage",
+      "artifact": "report.md",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-10-implementation-monitoring-plan",
+      "artifact": "project.plan",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-10-implementation-monitoring-plan",
+      "artifact": "project.plan",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-10-implementation-monitoring-plan",
+      "artifact": "project.plan",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-10-implementation-monitoring-plan",
+      "artifact": "project.plan",
+      "to": "sco-03-economic-impact-assessment"
+    },
+    {
+      "from": "sco-10-implementation-monitoring-plan",
+      "artifact": "project.plan",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-10-implementation-monitoring-plan",
+      "artifact": "project.plan",
+      "to": "sco-12-meaningful-metrics"
+    },
+    {
+      "from": "sco-11-adoption-sustainability",
+      "artifact": "project.plan",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-11-adoption-sustainability",
+      "artifact": "project.plan",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-11-adoption-sustainability",
+      "artifact": "project.plan",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-11-adoption-sustainability",
+      "artifact": "project.plan",
+      "to": "sco-03-economic-impact-assessment"
+    },
+    {
+      "from": "sco-11-adoption-sustainability",
+      "artifact": "project.plan",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-11-adoption-sustainability",
+      "artifact": "project.plan",
+      "to": "sco-12-meaningful-metrics"
+    },
+    {
+      "from": "sco-12-meaningful-metrics",
+      "artifact": "project.plan",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-12-meaningful-metrics",
+      "artifact": "project.plan",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-12-meaningful-metrics",
+      "artifact": "project.plan",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-12-meaningful-metrics",
+      "artifact": "project.plan",
+      "to": "sco-03-economic-impact-assessment"
+    },
+    {
+      "from": "sco-12-meaningful-metrics",
+      "artifact": "project.plan",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-12-meaningful-metrics",
+      "artifact": "project.plan",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-toolkit-orchestrator",
+      "artifact": "project.plan",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "sco-toolkit-orchestrator",
+      "artifact": "project.plan",
+      "to": "sco-00-trust-marker"
+    },
+    {
+      "from": "sco-toolkit-orchestrator",
+      "artifact": "project.plan",
+      "to": "sco-02-capturing-communicating-impact"
+    },
+    {
+      "from": "sco-toolkit-orchestrator",
+      "artifact": "project.plan",
+      "to": "sco-03-economic-impact-assessment"
+    },
+    {
+      "from": "sco-toolkit-orchestrator",
+      "artifact": "project.plan",
+      "to": "sco-10-implementation-monitoring-plan"
+    },
+    {
+      "from": "sco-toolkit-orchestrator",
+      "artifact": "project.plan",
+      "to": "sco-11-adoption-sustainability"
+    },
+    {
+      "from": "sco-toolkit-orchestrator",
+      "artifact": "project.plan",
+      "to": "sco-12-meaningful-metrics"
     }
   ]
 }

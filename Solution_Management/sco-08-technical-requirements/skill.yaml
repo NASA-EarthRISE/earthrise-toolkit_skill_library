@@ -1,0 +1,40 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-08-technical-requirements
+title: Technical Requirements
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: 'Completes the Technical Requirements Template: partner questions, data source specs, architecture, I/O, platforms, validation, capacities.'
+tags:
+- technical-requirements
+- architecture
+- data-sources
+- mvp
+- sco-toolkit
+inputs:
+- type: partner.request
+  description: EO requirements from needs assessment.
+- type: report.md
+  description: UCD and ICA outputs.
+outputs:
+- type: report.md
+  description: Both template tables, data source table, code dependencies, checklist, architecture diagram, plus a YAML patch to `solution-profile.yaml` (schema in `references/solution-profile.template.yaml`).
+composes_with:
+  upstream:
+  - sco-05-needs-assessment
+  - sco-06-information-chain-analysis
+  - sco-07-user-centered-design
+  - sco-04-stakeholder-mapping
+  downstream:
+  - sco-09-data-governance-storage
+  - sco-10-implementation-monitoring-plan
+  - sco-11-adoption-sustainability
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

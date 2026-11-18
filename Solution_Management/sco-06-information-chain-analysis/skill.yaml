@@ -1,0 +1,39 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-06-information-chain-analysis
+title: Information Chain Analysis
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: Traces one decision pathway as numbered chain links, stress-tests handoffs, prioritizes breakdowns, and assigns actions and assumptions.
+tags:
+- information-chain
+- dissemination
+- early-warning
+- bottlenecks
+- sco-toolkit
+inputs:
+- type: partner.request
+  description: Priority decisions from needs assessment.
+- type: report.md
+  description: Stakeholder map (actors).
+outputs:
+- type: report.md
+  description: ICA Step 1–6 tables and chain diagram with CSV, plus a YAML patch to `solution-profile.yaml` (schema in `references/solution-profile.template.yaml`).
+composes_with:
+  upstream:
+  - sco-04-stakeholder-mapping
+  - sco-05-needs-assessment
+  downstream:
+  - sco-07-user-centered-design
+  - sco-08-technical-requirements
+  - sco-12-meaningful-metrics
+  - sco-11-adoption-sustainability
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

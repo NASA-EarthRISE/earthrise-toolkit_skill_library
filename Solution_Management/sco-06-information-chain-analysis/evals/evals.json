@@ -1,0 +1,41 @@
+{
+  "skill": "sco-06-information-chain-analysis",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Map the information chain from flood forecast to household evacuation.",
+      "files": [],
+      "expectations": [
+        "Step 1 Anchor table with the six exact fields",
+        "Links C1..Cn with breakdown types from delay/capacity/access/trust/distortion"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Do an ICA for flood evacuation and reservoir release decisions.",
+      "files": [],
+      "expectations": [
+        "Splits into ICA-1 and ICA-2"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Where do our drought alerts break down before reaching farmers?",
+      "files": [],
+      "expectations": [
+        "Ties every issue to exactly one link and considers equity/access"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Design the dashboard layout and thresholds for district officers.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to sco-07-user-centered-design)"
+      ]
+    }
+  ]
+}

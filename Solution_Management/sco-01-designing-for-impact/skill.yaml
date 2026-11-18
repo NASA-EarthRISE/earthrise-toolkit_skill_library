@@ -1,0 +1,37 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-01-designing-for-impact
+title: Designing for Impact
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: Builds the if/then pathway, results framework (inputs→outputs→outcomes→impact), and assumption record.
+tags:
+- results-framework
+- theory-of-change
+- impact
+- assumptions
+- sco-toolkit
+inputs:
+- type: partner.request
+  description: Partner need and the decision the solution supports.
+outputs:
+- type: project.plan
+  description: Results narrative, results framework table, assumption record with CSV, plus a YAML patch to `solution-profile.yaml` (schema in `references/solution-profile.template.yaml`).
+composes_with:
+  upstream:
+  - sco-05-needs-assessment
+  - sco-04-stakeholder-mapping
+  downstream:
+  - sco-10-implementation-monitoring-plan
+  - sco-12-meaningful-metrics
+  - sco-06-information-chain-analysis
+  - sco-07-user-centered-design
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

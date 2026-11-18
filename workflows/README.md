@@ -16,6 +16,7 @@ Copy [`_template.md`](_template.md). Each workflow must:
 | Workflow | Teams | Status |
 |---|---|---|
 | [`model-to-partner-delivery`](model-to-partner-delivery.md) | Science → GIT → Solution Management | draft |
+| [`partner-need-to-co-developed-solution`](partner-need-to-co-developed-solution.md) | Solution Management → Science → GIT → Solution Management | draft |
 
 ## Ideas backlog (open an issue to claim one)
 - `partner-request-to-pilot-map` — Sol Mgmt intake → Science mapping → Science accuracy → Sol Mgmt brief

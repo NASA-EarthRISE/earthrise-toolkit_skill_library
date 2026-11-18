@@ -1,0 +1,87 @@
+# solution-profile.yaml — shared state across all Solution Co-Development Toolkit agents.
+# Copy to your project as `solution-profile.yaml`. Each tool reads it and emits a patch.
+# Provenance: every list item may carry `source: USER | STAKEHOLDER | PROFILE | AI-DRAFT | ASSUMPTION`.
+
+meta:
+  solution_title: ""
+  solution_manager: ""
+  organization: ""
+  phase: 1                  # 1–4
+  arl_current: null         # NASA Application Readiness Level (1–9)
+  arl_target: null
+  last_updated: ""          # ISO date
+  tools_completed: []       # e.g. ["04-stakeholder-mapping", "05-needs-assessment"]
+
+# 01 Designing for Impact
+impact:
+  need: ""
+  why_it_matters: ""
+  problem_statement: ""
+  if_then: ""               # "If we ___, then users will ___, then ___ will improve."
+  results_framework:
+    inputs: []
+    outputs: []
+    outcomes_short_term: []
+    outcomes_long_term: []
+    impact: []
+
+# 04 Stakeholder Mapping
+stakeholders: []            # {id: SH-01, name, primary_category, secondary_category, relationship_readiness, influence, interest, engagement_strategy, source}
+stakeholder_insights: []
+
+# 05 Needs Assessment
+user_groups: []             # {id: UG-01, name, role, key_decisions, decision_type, operational_rhythm, eo_literacy}
+needs: []                   # {id: N-01, user_group, theme, statement, decision_affected, consequence_if_unmet, value, feasibility, priority}
+constraints: []             # {id, user_group, type, description, structural: true|false}
+eo_requirements: []         # {id, need_id, spatial, temporal, latency, format}
+
+# 06 Information Chain Analysis
+decision_pathways: []       # {id: ICA-1, decision, decision_maker, timing, beneficiary, products, consequence_of_failure, links:[...], priority_issues:[...], actions:[...]}
+
+# 07 User-Centered Design
+personas: []                # {id: P-01, decision, window, authority, success, tasks, comprehension_risks, requirements, hypothesis, validation}
+
+# 08 Technical Requirements
+technical:
+  agreements: []
+  data_sources: []          # {name, access, spatial_res, spectral_res, latency, processing_level}
+  processing_env: []
+  deployment_env: []
+  outputs: []               # {name, format}
+  mvp: ""
+
+# 09 Data Governance
+data_governance:
+  repositories: []
+  licenses: {data: "CC-BY-4.0", code: ""}
+  release_window_days: null
+  pii_or_controlled: false
+
+# 03 / 12 / 10
+eia:
+  depth: ""                 # high-level | in-depth
+  methods: []
+  baseline_data_needs: []
+indicators: []              # {id: I-01, indicator, type: Input|Output|Outcome|Impact, baseline, target, data_source, frequency, unit, poc, method, rationale}
+assumptions: []             # {id: A-01, link, assumption, why_it_matters, monitor, action_if_fails, source_tool}
+risks: []                   # {id: R-01, area, description, likelihood, impact, mitigation}
+milestones: []              # {id: M-01, name, description, owner, date}
+roles: []                   # {partner, role, responsibilities}
+
+# 11 Adoption & Sustainability
+adoption:
+  goals: []
+  long_term_owner: ""
+  handover_conditions: []
+
+# 02 Capturing & Communicating Impact
+communications: []          # {audience, product_type, key_message, evidence, due}
+
+# 00 TRUST Marker
+trust:
+  assessed_on: ""
+  scores: {trust_building: null, relevance: null, user_partnership: null, sustainability: null, transition_impact: null}
+  targets: {trust_building: null, relevance: null, user_partnership: null, sustainability: null, transition_impact: null}
+  evidence: {}
+
+open_items: []

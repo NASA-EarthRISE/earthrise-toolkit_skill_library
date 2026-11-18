@@ -1,0 +1,42 @@
+{
+  "skill": "sco-02-capturing-communicating-impact",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Draft a 150–200 word internal NASA highlight for our flood alert pilot using these indicator results.",
+      "files": [],
+      "expectations": [
+        "Word count within 150–200 plus contact info",
+        "Names NASA assets",
+        "Every number appears in the evidence ledger"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Who should hear about our drought tool's impact and in what format?",
+      "files": [],
+      "expectations": [
+        "Produces Communications Plan table with audience, product type, breadth and depth evidence"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Write a case study; we have download counts only.",
+      "files": [],
+      "expectations": [
+        "Readiness check says case study minimum is not met and suggests a lower-tier product"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Compute the ROI of our tool for farmers.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to sco-03-economic-impact-assessment)"
+      ]
+    }
+  ]
+}

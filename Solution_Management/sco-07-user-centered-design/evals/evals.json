@@ -1,0 +1,41 @@
+{
+  "skill": "sco-07-user-centered-design",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Build a persona for the district officer who decides when to evacuate.",
+      "files": [],
+      "expectations": [
+        "Passes the 4-part design-ready test",
+        "Has a behavioral hypothesis in 'If we design ___, then this persona will ___' form"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "What should our flood dashboard show and how should thresholds look?",
+      "files": [],
+      "expectations": [
+        "Produces design requirements across all six dimensions linked to a decision"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Make a persona: Maria, 45, likes gardening.",
+      "files": [],
+      "expectations": [
+        "Redirects to decision, window, authority, and success instead of backstory"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "List the satellite datasets and latency we need.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to sco-08-technical-requirements)"
+      ]
+    }
+  ]
+}

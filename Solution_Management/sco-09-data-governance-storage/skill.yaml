@@ -1,0 +1,36 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-09-data-governance-storage
+title: Data Governance & Storage Plan
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: Drafts a FAIR, SPD-41a-compliant Data Governance and Storage Plan with data inventory and 15-row checklist.
+tags:
+- data-governance
+- open-science
+- daac
+- metadata
+- fair
+- sco-toolkit
+inputs:
+- type: report.md
+  description: Technical requirements (inputs, outputs, platforms).
+outputs:
+- type: report.md
+  description: Plan sections 1–10, data inventory, compliance checklist, plus a YAML patch to `solution-profile.yaml` (schema in `references/solution-profile.template.yaml`).
+composes_with:
+  upstream:
+  - sco-08-technical-requirements
+  downstream:
+  - sco-10-implementation-monitoring-plan
+  - sco-11-adoption-sustainability
+  - reproducible-release
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

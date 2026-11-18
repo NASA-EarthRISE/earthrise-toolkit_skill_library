@@ -1,0 +1,42 @@
+{
+  "skill": "sco-toolkit-orchestrator",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Where do we start? We're building a soil-moisture drought advisory with a state ag agency.",
+      "files": [],
+      "expectations": [
+        "Asks at most 4 setup questions (title, phase, ARL, today's need)",
+        "Recommends sco-01-designing-for-impact or sco-04-stakeholder-mapping with a one-sentence reason"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Here's our solution-profile.yaml. /status",
+      "files": [],
+      "expectations": [
+        "Prints status block with completed tools, open items, AI-DRAFT count, and a Next recommendation",
+        "Does not re-ask information present in the profile"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Which co-development tool should we use to plan how our flood alerts reach households?",
+      "files": [],
+      "expectations": [
+        "Routes to sco-06-information-chain-analysis"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Cut a tagged release of our repo with a DOI.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to reproducible-release)"
+      ]
+    }
+  ]
+}

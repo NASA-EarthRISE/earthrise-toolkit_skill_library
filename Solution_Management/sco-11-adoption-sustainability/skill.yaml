@@ -1,0 +1,42 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-11-adoption-sustainability
+title: Adoption & Sustainability Plan
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: Drafts the Solution Adoption and Sustainability Plan sections 1–8 with all template tables.
+tags:
+- adoption
+- sustainability
+- handover
+- transition
+- sco-toolkit
+inputs:
+- type: project.plan
+  description: Stakeholders, milestones.
+- type: report.md
+  description: Needs, UCD, technical and data governance outputs.
+- type: release.notes
+  description: Delivered versions for handover.
+outputs:
+- type: project.plan
+  description: Adoption and sustainability plan with milestones, roles, risks, handover and exit tables, plus a YAML patch to `solution-profile.yaml` (schema in `references/solution-profile.template.yaml`).
+composes_with:
+  upstream:
+  - sco-04-stakeholder-mapping
+  - sco-05-needs-assessment
+  - sco-07-user-centered-design
+  - sco-08-technical-requirements
+  - sco-09-data-governance-storage
+  downstream:
+  - sco-10-implementation-monitoring-plan
+  - sco-00-trust-marker
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

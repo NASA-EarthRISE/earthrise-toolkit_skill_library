@@ -1,0 +1,42 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-02-capturing-communicating-impact
+title: Capturing & Communicating Impact
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: Plans audiences and evidence for impact communication and drafts NASA-format products (highlight, use case, case study, blog, press release).
+tags:
+- impact
+- communication
+- use-case
+- case-study
+- outreach
+- sco-toolkit
+inputs:
+- type: project.plan
+  description: Results framework, indicators, and comms plan.
+- type: metrics.json
+  description: Indicator actuals or EIA values as evidence.
+- type: report.md
+  description: Activity or assessment reports.
+outputs:
+- type: stakeholder.brief
+  description: Product draft at the toolkit's required length with evidence ledger.
+- type: report.md
+  description: Communications plan table.
+composes_with:
+  upstream:
+  - sco-12-meaningful-metrics
+  - sco-03-economic-impact-assessment
+  - sco-10-implementation-monitoring-plan
+  downstream:
+  - partner-status-brief
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

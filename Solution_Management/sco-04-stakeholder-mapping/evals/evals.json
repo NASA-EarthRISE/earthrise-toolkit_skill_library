@@ -1,0 +1,41 @@
+{
+  "skill": "sco-04-stakeholder-mapping",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Map stakeholders for a flood early warning service: national met office, district DRM, local NGOs, World Bank.",
+      "files": [],
+      "expectations": [
+        "Every row has category, readiness, influence, interest, strategy",
+        "Includes influence-interest matrix with Collaborate/Align/Validate/Monitor"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Who should we engage first for our crop monitoring product?",
+      "files": [],
+      "expectations": [
+        "Asks for candidate stakeholders rather than naming organizations"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "The donor is very excited about us; score their interest 4.",
+      "files": [],
+      "expectations": [
+        "Explains interest is structural relevance and asks about mandate impact"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Write interview questions for district officials about their workflow.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to sco-05-needs-assessment)"
+      ]
+    }
+  ]
+}

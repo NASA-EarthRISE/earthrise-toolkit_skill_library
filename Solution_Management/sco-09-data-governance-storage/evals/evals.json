@@ -1,0 +1,41 @@
+{
+  "skill": "sco-09-data-governance-storage",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Write our data governance plan; inputs are Landsat and GPM, output is a COG flood map.",
+      "files": [],
+      "expectations": [
+        "Data inventory includes inputs and outputs with format and license",
+        "Checklist has all 15 rows with status"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Are we SPD-41a compliant? We release data after the paper is published.",
+      "files": [],
+      "expectations": [
+        "Flags embargo conflict with no proprietary period"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Propose a file naming convention for our products.",
+      "files": [],
+      "expectations": [
+        "Gives a concrete pattern with version"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Plan who owns the tool after handover.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to sco-11-adoption-sustainability)"
+      ]
+    }
+  ]
+}
