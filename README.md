@@ -66,7 +66,7 @@ flowchart LR
 | ![](https://img.shields.io/badge/skill-draft-lightgrey) | Passes the automated validator |
 | ![](https://img.shields.io/badge/skill-peer--reviewed-blue) | In-team reviewer: rubric ≥ 70, evals ≥ 80% |
 | ![](https://img.shields.io/badge/skill-verified-brightgreen) | + cross-team reviewer on a 2nd Claude account: rubric ≥ 85, evals ≥ 90%, 2 maintainers |
-| ![](https://img.shields.io/badge/skill-program--certified-gold) | + proven in a real cross-team workflow, Skill Council sign-off |
+| ![](https://img.shields.io/badge/skill-program--certified-gold) | + green light from a domain Expert Reviewer on a GitHub issue (`/approve`), checked by CI |
 | ![](https://img.shields.io/badge/skill-stale-orange) | Review date passed: counts as one level lower |
 | ![](https://img.shields.io/badge/skill-deprecated-red) | Superseded or unsafe |
 
@@ -94,9 +94,6 @@ Teams work in **their own Claude accounts**. Collaboration happens through this 
 ## Quick start
 
 **Use a skill**
-
-**New here?** Walk through the [contributor guide slides](docs/contributor-guide-slides.pdf).
-
 ```bash
 python scripts/package_skill.py Science/classification-accuracy-assessment
 # upload dist/classification-accuracy-assessment.zip in Claude's skills settings
@@ -120,6 +117,7 @@ python scripts/build_registry.py
 Full list: [`registry/CATALOG.md`](registry/CATALOG.md).
 
 ## Governance
-The **Skill Council** (one rep per team + Geo-AI Working Group lead) owns the
-standard, the artifact vocabulary, `certified` sign-off and deprecations. Changes
-to `standards/` need Council review (enforced by `CODEOWNERS`).
+No meetings: everything runs through pull requests and issues.
+- **Gates 1–3** happen on the skill's PR (CI + CODEOWNERS reviewers).
+- **Certification** is one **Expert Reviewer** per domain ([`standards/experts.yaml`](standards/experts.yaml)) approving a *Certification request* issue with `/approve`. CI verifies the approval before the badge can merge.
+- Changes to `standards/` need an Expert Reviewer's approval (enforced by `CODEOWNERS`).
