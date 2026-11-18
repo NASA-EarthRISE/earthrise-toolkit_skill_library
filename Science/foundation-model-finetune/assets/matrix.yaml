@@ -1,0 +1,49 @@
+# Experiment matrix: every run x every seed gets its own config.
+experiment: example-fm-intercomparison
+seeds: [0, 1, 2]               # >= 3, or differences are not interpretable
+max_epochs: 50
+
+set:                           # applied to every run
+  data.init_args.batch_size: 8
+
+runs:
+  # --- Foundation models ---------------------------------------------------
+  - name: prithvi_eo_v2_300_tl
+    set:
+      model.init_args.model_args.backbone: prithvi_eo_v2_300_tl
+      model.init_args.model_args.necks:
+        - {name: SelectIndices, indices: [5, 11, 17, 23]}
+        - {name: ReshapeTokensToImage}
+        - {name: LearnedInterpolateToPyramidal}
+
+  - name: prithvi_eo_v2_100_tl
+    set:
+      model.init_args.model_args.backbone: prithvi_eo_v2_100_tl
+      model.init_args.model_args.necks:
+        - {name: SelectIndices, indices: [2, 5, 8, 11]}     # 12-layer ViT
+        - {name: ReshapeTokensToImage}
+        - {name: LearnedInterpolateToPyramidal}
+
+  - name: prithvi_300_frozen   # linear-probe-style check: is the encoder doing the work?
+    set:
+      model.init_args.model_args.backbone: prithvi_eo_v2_300_tl
+      model.init_args.freeze_backbone: true
+
+  # TerraMind takes modalities, not bands: drop backbone_bands (null deletes the key).
+  # - name: terramind_v1_base
+  #   set:
+  #     model.init_args.model_args.backbone: terramind_v1_base
+  #     model.init_args.model_args.backbone_bands: null
+  #     model.init_args.model_args.backbone_modalities: [S2L1C]
+
+  # --- Non-foundation-model baseline (REQUIRED) ----------------------------
+  # Same data, same splits, trained from scratch / ImageNet. Verify keys for your version.
+  - name: unet_resnet34_baseline
+    set:
+      model.init_args.model_factory: SMPModelFactory
+      model.init_args.model_args:
+        model: Unet
+        backbone: resnet34
+        pretrained: false
+        in_channels: 6
+        num_classes: 2

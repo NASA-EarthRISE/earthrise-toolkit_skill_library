@@ -73,6 +73,47 @@
       "path": "Science/classification-accuracy-assessment"
     },
     {
+      "id": "foundation-model-finetune",
+      "title": "Foundation Model Fine-tune & Intercomparison (TerraTorch)",
+      "domain": "Science",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Fair, multi-seed fine-tuning and intercomparison of GeoFMs (Prithvi, TerraMind\u2026) vs a non-FM baseline on a locked, checked data recipe.",
+      "tags": [
+        "foundation-models",
+        "terratorch",
+        "prithvi",
+        "terramind",
+        "fine-tuning",
+        "benchmark",
+        "segmentation",
+        "regression",
+        "deep-learning",
+        "geo-ai"
+      ],
+      "inputs": [
+        "dataset.raster",
+        "partner.request"
+      ],
+      "outputs": [
+        "metrics.json",
+        "model.checkpoint",
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [],
+        "downstream": [
+          "classification-accuracy-assessment",
+          "reproducible-release",
+          "partner-status-brief"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Science/foundation-model-finetune"
+    },
+    {
       "id": "partner-status-brief",
       "title": "Partner Status Brief",
       "domain": "Solution_Management",
@@ -122,6 +163,26 @@
     },
     {
       "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "metrics.json",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "metrics.json",
+      "to": "reproducible-release"
+    },
+    {
+      "from": "foundation-model-finetune",
+      "artifact": "model.checkpoint",
+      "to": "reproducible-release"
+    },
+    {
+      "from": "foundation-model-finetune",
       "artifact": "report.md",
       "to": "partner-status-brief"
     },

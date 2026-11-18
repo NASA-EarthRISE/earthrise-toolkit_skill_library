@@ -1,0 +1,35 @@
+id: foundation-model-finetune
+title: Foundation Model Fine-tune & Intercomparison (TerraTorch)
+domain: Science
+version: 0.1.0
+owner: "@MayerT1"
+maintainers:
+  - "@MayerT1"
+status: draft
+summary: Fair, multi-seed fine-tuning and intercomparison of GeoFMs (Prithvi, TerraMind…) vs a non-FM baseline on a locked, checked data recipe.
+tags: [foundation-models, terratorch, prithvi, terramind, fine-tuning, benchmark, segmentation, regression, deep-learning, geo-ai]
+
+inputs:
+  - type: dataset.raster
+    description: Image and label chips (GeoTIFF) for train/val/test, and later for inference.
+  - type: partner.request
+    description: Optional; sets the primary metric and decision bar.
+outputs:
+  - type: metrics.json
+    description: Per-backbone test metrics, mean ± std over seeds, ranking, baseline, tie notes.
+  - type: model.checkpoint
+    description: Best run's best.ckpt plus model_card.md and data_recipe.yaml.
+  - type: report.md
+    description: Experiment report with leaderboard and limitations.
+
+composes_with:
+  upstream: []
+  downstream: [classification-accuracy-assessment, reproducible-release, partner-status-brief]
+
+requires: ["python>=3.10", "terratorch", "lightning", "rasterio", "numpy", "pyyaml", "GPU for training"]
+data_sensitivity: internal
+
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

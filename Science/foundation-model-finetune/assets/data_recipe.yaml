@@ -1,0 +1,38 @@
+# LOCKED data recipe — the single source of truth for every run AND for inference.
+# Change it = new recipe name = retrain everything. Never edit mid-experiment.
+name: example-hls-segmentation-v1
+task: segmentation            # segmentation | regression | classification
+
+image_glob: "*_merged.tif"
+label_glob: "*.mask.tif"
+
+# Order on disk == order fed to the backbone. Use the backbone's band names
+# (e.g. HLS: BLUE GREEN RED NIR_NARROW SWIR_1 SWIR_2). Check the model card.
+bands: [BLUE, GREEN, RED, NIR_NARROW, SWIR_1, SWIR_2]
+dtype: float32
+scale_note: "HLS surface reflectance scaled to 0-1 (DN * 0.0001)"   # state it explicitly
+chip_size: [512, 512]          # [height, width] in pixels
+resolution_m: 30
+crs: null                      # e.g. "EPSG:32616"; null = any, but all chips must share one
+nodata: -9999
+no_data_replace: 0
+label_nodata: -1
+num_classes: 2
+class_names: [background, target]
+
+# Computed from the TRAIN split only:  python scripts/check_recipe.py --recipe data_recipe.yaml --compute-stats
+norm:
+  means: []
+  stds: []
+
+splits:
+  method: spatial_block        # spatial_block | predefined   (never random pixel/chip splits)
+  block_note: "10 km blocks; val/test blocks >= 1 block away from train"
+  # Use ABSOLUTE paths: run_matrix.sh runs from the experiment folder.
+  train_root: data/train
+  val_root: data/val
+  test_root: data/test
+  # optional when labels live in separate folders:
+  # train_label_root: data/train_labels
+
+drift_z_max: 3.0               # check_recipe.py fails a band whose mean drifts > this many train stds

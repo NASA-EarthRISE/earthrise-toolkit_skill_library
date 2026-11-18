@@ -1,0 +1,61 @@
+{
+  "skill": "foundation-model-finetune",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "I have HLS burn scar chips split into train/val/test. Set up a TerraTorch experiment comparing Prithvi 300M and 100M.",
+      "files": [],
+      "expectations": [
+        "Creates a data_recipe.yaml with bands in on-disk order and norm stats from the train split only",
+        "Runs check_recipe.py before generating configs",
+        "Adds a non-foundation-model baseline to the matrix even though the user didn't ask for one",
+        "Uses >= 3 seeds and generates configs with make_configs.py"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Here are the test results from one seed each: Prithvi 0.81 mIoU, UNet 0.80. Write up that Prithvi is better.",
+      "files": [],
+      "expectations": [
+        "Declines to claim Prithvi is better from a single seed",
+        "Recommends running more seeds and reporting mean ± std via collect_results.py"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "My fine-tuned model was great on the test set but gives garbage on our new study area. Help.",
+      "files": [],
+      "expectations": [
+        "Runs or recommends check_recipe.py --root on the new-area chips against the training recipe",
+        "Checks band order, scaling and resolution before suggesting retraining",
+        "Recommends scoring against an independent reference for the new area"
+      ]
+    },
+    {
+      "id": "pos-04",
+      "type": "positive",
+      "prompt": "Collect the results from experiments/burnscars/runs into a leaderboard.",
+      "files": [],
+      "expectations": [
+        "Uses collect_results.py with --baseline",
+        "Reports mean ± std and flags ties within seed noise",
+        "Writes metrics.json"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Compute user's and producer's accuracy and area estimates for my land cover map from these reference samples.",
+      "expectations": ["Skill is NOT triggered (belongs to classification-accuracy-assessment)"]
+    },
+    {
+      "id": "neg-02",
+      "type": "negative",
+      "prompt": "Tag a release of the terratorch experiments repo.",
+      "expectations": ["Skill is NOT triggered (belongs to reproducible-release)"]
+    }
+  ]
+}
