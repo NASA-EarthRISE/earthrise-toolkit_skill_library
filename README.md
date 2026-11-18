@@ -94,6 +94,9 @@ Teams work in **their own Claude accounts**. Collaboration happens through this 
 ## Quick start
 
 **Use a skill**
+
+📽️ **New here?** Walk through the [contributor guide slides](docs/contributor-guide-slides.pdf).
+
 ```bash
 python scripts/package_skill.py Science/classification-accuracy-assessment
 # upload dist/classification-accuracy-assessment.zip in Claude's skills settings
