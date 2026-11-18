@@ -1,0 +1,12 @@
+# Domain reviewers are auto-requested on PRs touching their folder (Gate 2).
+# Replace team slugs with the real GitHub teams in the NASA-EarthRISE org.
+
+/GIT/                  @NASA-EarthRISE/git-team
+/Science/              @NASA-EarthRISE/science-team
+/Solution_Management/  @NASA-EarthRISE/solution-management
+
+# Shared standards need the Skill Council
+/standards/            @NASA-EarthRISE/skill-council
+/workflows/            @NASA-EarthRISE/skill-council
+/scripts/              @NASA-EarthRISE/git-team
+/.github/              @NASA-EarthRISE/git-team

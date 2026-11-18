@@ -1,0 +1,23 @@
+name: Skill regression / problem
+description: A skill gave a wrong, unsafe, or inconsistent result
+title: "[regression] <skill-id>: <short description>"
+labels: ["skill-regression"]
+body:
+  - type: input
+    id: skill
+    attributes: {label: Skill id and version}
+    validations: {required: true}
+  - type: textarea
+    id: prompt
+    attributes: {label: Prompt you used (redact sensitive data)}
+    validations: {required: true}
+  - type: textarea
+    id: expected
+    attributes: {label: Expected vs actual}
+    validations: {required: true}
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: ["Wrong result", "Unsafe / data-handling", "Didn't trigger", "Triggered when it shouldn't", "Docs unclear"]
+    validations: {required: true}

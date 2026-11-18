@@ -1,0 +1,35 @@
+id: reproducible-release
+title: Reproducible Research Release
+domain: GIT
+version: 0.1.0
+owner: "@MayerT1"
+maintainers:
+  - "@MayerT1"
+status: draft
+summary: Cut a SemVer, citable, environment-pinned release of a research repo with attached results.
+tags: [release, versioning, citation, zenodo, reproducibility, github]
+
+inputs:
+  - type: code.repo
+    description: Repository to release.
+  - type: metrics.json
+    description: Optional results to attach to the release.
+  - type: model.checkpoint
+    description: Optional weights + model card to attach.
+outputs:
+  - type: release.notes
+    description: RELEASE_NOTES_vX.Y.Z.md.
+  - type: env.lock
+    description: Pinned environment.yml / requirements.txt.
+
+composes_with:
+  upstream: [classification-accuracy-assessment]
+  downstream: [partner-status-brief]
+
+requires: ["git", "gh (GitHub CLI) or GitHub connector"]
+data_sensitivity: internal
+
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

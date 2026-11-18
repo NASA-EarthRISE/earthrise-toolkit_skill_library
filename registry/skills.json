@@ -1,0 +1,134 @@
+{
+  "skills": [
+    {
+      "id": "reproducible-release",
+      "title": "Reproducible Research Release",
+      "domain": "GIT",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Cut a SemVer, citable, environment-pinned release of a research repo with attached results.",
+      "tags": [
+        "release",
+        "versioning",
+        "citation",
+        "zenodo",
+        "reproducibility",
+        "github"
+      ],
+      "inputs": [
+        "code.repo",
+        "metrics.json",
+        "model.checkpoint"
+      ],
+      "outputs": [
+        "release.notes",
+        "env.lock"
+      ],
+      "composes_with": {
+        "upstream": [
+          "classification-accuracy-assessment"
+        ],
+        "downstream": [
+          "partner-status-brief"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "GIT/reproducible-release"
+    },
+    {
+      "id": "classification-accuracy-assessment",
+      "title": "Classification Accuracy Assessment (Olofsson 2014)",
+      "domain": "Science",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "Area-adjusted accuracy + area estimates with 95% CIs for any classified map.",
+      "tags": [
+        "accuracy",
+        "validation",
+        "land-cover",
+        "change-detection",
+        "area-estimation",
+        "remote-sensing"
+      ],
+      "inputs": [
+        "samples.csv",
+        "dataset.raster"
+      ],
+      "outputs": [
+        "metrics.json",
+        "report.md"
+      ],
+      "composes_with": {
+        "upstream": [],
+        "downstream": [
+          "partner-status-brief",
+          "reproducible-release"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Science/classification-accuracy-assessment"
+    },
+    {
+      "id": "partner-status-brief",
+      "title": "Partner Status Brief",
+      "domain": "Solution_Management",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "One-page, decision-focused partner/leadership brief built only from Science and GIT outputs.",
+      "tags": [
+        "stakeholder",
+        "partner",
+        "status",
+        "communication",
+        "program-management"
+      ],
+      "inputs": [
+        "metrics.json",
+        "release.notes",
+        "report.md",
+        "project.plan",
+        "partner.request"
+      ],
+      "outputs": [
+        "stakeholder.brief"
+      ],
+      "composes_with": {
+        "upstream": [
+          "classification-accuracy-assessment",
+          "reproducible-release"
+        ],
+        "downstream": []
+      },
+      "data_sensitivity": "internal",
+      "path": "Solution_Management/partner-status-brief"
+    }
+  ],
+  "connections": [
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "metrics.json",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "metrics.json",
+      "to": "reproducible-release"
+    },
+    {
+      "from": "classification-accuracy-assessment",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "reproducible-release",
+      "artifact": "release.notes",
+      "to": "partner-status-brief"
+    }
+  ]
+}

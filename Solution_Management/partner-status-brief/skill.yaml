@@ -1,0 +1,37 @@
+id: partner-status-brief
+title: Partner Status Brief
+domain: Solution_Management
+version: 0.1.0
+owner: "@MayerT1"
+maintainers:
+  - "@MayerT1"
+status: draft
+summary: One-page, decision-focused partner/leadership brief built only from Science and GIT outputs.
+tags: [stakeholder, partner, status, communication, program-management]
+
+inputs:
+  - type: metrics.json
+    description: Quality numbers to translate into impact.
+  - type: release.notes
+    description: What was delivered.
+  - type: report.md
+    description: Technical context and limitations.
+  - type: project.plan
+    description: Milestones and dates for RAG status.
+  - type: partner.request
+    description: The partner's need and decision.
+outputs:
+  - type: stakeholder.brief
+    description: brief_<project>_<date>.md, one page.
+
+composes_with:
+  upstream: [classification-accuracy-assessment, reproducible-release]
+  downstream: []
+
+requires: []
+data_sensitivity: internal
+
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

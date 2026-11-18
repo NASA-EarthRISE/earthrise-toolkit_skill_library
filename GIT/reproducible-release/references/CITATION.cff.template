@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "{repo title}"
+version: "{X.Y.Z}"
+date-released: "{YYYY-MM-DD}"
+repository-code: "{https://github.com/NASA-EarthRISE/repo}"
+license: "{license}"
+authors:
+  - family-names: "{Family}"
+    given-names: "{Given}"
+    affiliation: "NASA EarthRISE, University of Alabama in Huntsville"
+    orcid: "https://orcid.org/{0000-0000-0000-0000}"

@@ -1,0 +1,35 @@
+{
+  "skill": "your-skill-name",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "A realistic request that should trigger this skill.",
+      "files": [],
+      "expectations": [
+        "A checkable statement about the output",
+        "Another checkable statement"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "A differently-worded request for the same job.",
+      "files": [],
+      "expectations": ["…"]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "An edge case (missing input, odd format).",
+      "files": [],
+      "expectations": ["Asks for the missing input instead of guessing"]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "A near-miss request that belongs to a different skill.",
+      "expectations": ["Skill is NOT triggered"]
+    }
+  ]
+}

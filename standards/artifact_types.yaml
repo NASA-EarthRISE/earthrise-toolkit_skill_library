@@ -1,0 +1,18 @@
+# Machine-readable artifact vocabulary. Keep in sync with ARTIFACT_TYPES.md.
+version: 1.0
+types:
+  - aoi.geojson
+  - dataset.raster
+  - dataset.vector
+  - samples.csv
+  - model.checkpoint
+  - metrics.json
+  - figure.png
+  - code.repo
+  - release.notes
+  - env.lock
+  - report.md
+  - stakeholder.brief
+  - project.plan
+  - partner.request
+  - issue.list

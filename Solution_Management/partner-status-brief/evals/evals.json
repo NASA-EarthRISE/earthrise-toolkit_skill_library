@@ -1,0 +1,42 @@
+{
+  "skill": "partner-status-brief",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Write a partner update for the forest change project using metrics.json and the v1.3.0 release notes.",
+      "files": [],
+      "expectations": [
+        "Output is <= 400 words with headline, RAG status, impact, asks, next milestone",
+        "Overall accuracy appears with its confidence interval",
+        "Lists source files at the bottom"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Leadership wants a one-pager on where we are. Here's the plan; the accuracy work isn't done yet.",
+      "files": [],
+      "expectations": [
+        "Marks missing accuracy results as TBD with an owner instead of inventing numbers",
+        "Sets a RAG status justified by plan dates"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Explain these accuracy results to our non-technical partner in plain language.",
+      "files": [],
+      "expectations": [
+        "Translates metrics into decision impact",
+        "Keeps uncertainty and flags the weakest class"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Compute user's and producer's accuracy from these samples.",
+      "expectations": ["Skill is NOT triggered (belongs to classification-accuracy-assessment)"]
+    }
+  ]
+}

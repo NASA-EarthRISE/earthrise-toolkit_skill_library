@@ -1,0 +1,44 @@
+{
+  "skill": "classification-accuracy-assessment",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Here are my reference samples and the mapped pixel counts per class. Give me area-adjusted accuracy and area estimates with 95% CIs.",
+      "files": ["evals/files/samples.csv", "evals/files/areas.csv"],
+      "expectations": [
+        "Runs scripts/accuracy_assessment.py rather than computing by hand",
+        "Reports overall accuracy 0.947 with CI half-width ~0.018 and n=640",
+        "Reports estimated deforestation area ~235,086 px with CI ~68,418, distinct from the 200,000 mapped",
+        "Writes metrics.json with skill and skill_version fields"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Can you build a confusion matrix and tell me how good my land cover map is? samples.csv attached.",
+      "files": ["evals/files/samples.csv"],
+      "expectations": [
+        "Asks for per-class mapped area before reporting area-adjusted accuracy",
+        "Does not report unweighted overall accuracy as the final answer"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Validate this forest change classification and write the methods and results paragraph for our report.",
+      "files": ["evals/files/samples.csv", "evals/files/areas.csv"],
+      "expectations": [
+        "Produces a report.md section with Methods, Results and Limitations",
+        "Cites Olofsson et al. 2014",
+        "Every number in the report appears in metrics.json"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Write a one-page update for our partner on the land cover project.",
+      "expectations": ["Skill is NOT triggered (belongs to partner-status-brief)"]
+    }
+  ]
+}

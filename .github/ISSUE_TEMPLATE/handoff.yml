@@ -1,0 +1,24 @@
+name: Cross-team hand-off
+description: Hand an artifact from one team's skill to the next team in a workflow
+title: "[handoff] <workflow>: <project> step <n>"
+labels: ["handoff"]
+body:
+  - type: input
+    id: workflow
+    attributes: {label: Workflow (workflows/*.md)}
+    validations: {required: true}
+  - type: dropdown
+    id: to
+    attributes:
+      label: Hand off to
+      options: [GIT, Science, Solution_Management]
+    validations: {required: true}
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Artifacts handed off (type + link/path)
+      placeholder: "metrics.json -> results/metrics.json @ commit abc123"
+    validations: {required: true}
+  - type: textarea
+    id: next
+    attributes: {label: What the next team should run (skill id + prompt)}

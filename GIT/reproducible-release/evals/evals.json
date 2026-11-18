@@ -1,0 +1,43 @@
+{
+  "skill": "reproducible-release",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Cut a new release of this repo, we added a tile-size flag and fixed the CRS bug since v1.2.0.",
+      "files": [],
+      "expectations": [
+        "Proposes v1.3.0 and explains MINOR vs PATCH",
+        "Updates CHANGELOG.md grouped Added/Changed/Fixed",
+        "Produces RELEASE_NOTES_v1.3.0.md",
+        "Shows tag/push commands and waits for confirmation before running them"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "We're submitting the paper next week, make the repo citable and freeze the environment.",
+      "files": [],
+      "expectations": [
+        "Creates CITATION.cff with version and date-released",
+        "Pins environment without local prefix paths"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Release it and attach the accuracy results from metrics.json.",
+      "files": [],
+      "expectations": [
+        "Copies metric values from metrics.json without changing them",
+        "Does not commit files larger than 50 MB to git"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Review this pull request for code style issues.",
+      "expectations": ["Skill is NOT triggered"]
+    }
+  ]
+}

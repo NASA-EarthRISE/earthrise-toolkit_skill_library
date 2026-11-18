@@ -1,0 +1,32 @@
+# EarthRISE skill manifest — copy, then replace every value.
+id: your-skill-name                 # = folder name = SKILL.md name
+title: Your Skill Title
+domain: Science                     # GIT | Science | Solution_Management (= parent folder)
+version: 0.1.0                      # SemVer; MAJOR bump when inputs/outputs change
+owner: "@your-github-handle"
+maintainers:
+  - "@your-github-handle"           # >= 2 required for verified / certified
+status: draft                       # draft | peer-reviewed | verified | certified | deprecated
+summary: One line shown in the catalog.
+tags: [example]
+
+inputs:                             # types MUST exist in standards/artifact_types.yaml
+  - type: report.md
+    description: What the skill needs.
+outputs:
+  - type: stakeholder.brief
+    description: What the skill produces.
+
+composes_with:                      # optional: skill ids this is designed to chain with
+  upstream: []
+  downstream: []
+
+requires: []                        # e.g. ["python>=3.10", "numpy", "GitHub connector"]
+data_sensitivity: public            # public | internal | partner-restricted
+
+verification:
+  reviewers: []                     # [{handle, domain, date, rubric, eval_pass, account}]
+  last_reviewed: null
+  review_due: null
+
+# deprecated_by: other-skill-id     # only when status: deprecated

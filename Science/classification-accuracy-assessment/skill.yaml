@@ -1,0 +1,33 @@
+id: classification-accuracy-assessment
+title: Classification Accuracy Assessment (Olofsson 2014)
+domain: Science
+version: 0.1.0
+owner: "@MayerT1"
+maintainers:
+  - "@MayerT1"
+status: draft
+summary: Area-adjusted accuracy + area estimates with 95% CIs for any classified map.
+tags: [accuracy, validation, land-cover, change-detection, area-estimation, remote-sensing]
+
+inputs:
+  - type: samples.csv
+    description: Reference samples with map_class and ref_class.
+  - type: dataset.raster
+    description: The classified map, used only for per-class mapped area.
+outputs:
+  - type: metrics.json
+    description: OA/UA/PA and area per class with SE and 95% CI.
+  - type: report.md
+    description: Methods/Results/Limitations accuracy section.
+
+composes_with:
+  upstream: []
+  downstream: [partner-status-brief, reproducible-release]
+
+requires: ["python>=3.9"]
+data_sensitivity: internal
+
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

@@ -1,0 +1,30 @@
+name: validate-skills
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 13 * * 1"   # weekly: surfaces skills that went stale
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r scripts/requirements.txt
+      - name: Gate 1 — validate skills
+        run: python scripts/validate_skill.py
+      - name: Registry up to date
+        if: github.event_name != 'schedule'
+        run: python scripts/build_registry.py --check
+      - name: Science example reproduces published numbers
+        run: |
+          python Science/classification-accuracy-assessment/scripts/accuracy_assessment.py \
+            --samples Science/classification-accuracy-assessment/evals/files/samples.csv \
+            --areas Science/classification-accuracy-assessment/evals/files/areas.csv \
+            --out /tmp/oa --unit pixels
+          python -c "import json;m=json.load(open('/tmp/oa/metrics.json'))['metrics'];assert abs(m['overall_accuracy']['value']-0.947)<0.001"
