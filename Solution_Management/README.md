@@ -2,7 +2,7 @@
 
 Skills that connect EarthRISE science and software to **partners, decisions and program delivery**.
 
-**Team CODEOWNERS:** `@NASA-EarthRISE/solution-management` · **Council rep:** _TBD_
+**Team CODEOWNERS:** `@NASA-EarthRISE/solution-management` · **Expert Reviewer:** see [`standards/experts.yaml`](../standards/experts.yaml)
 
 ## What belongs here
 | Area | Example skills (✅ = exists) |

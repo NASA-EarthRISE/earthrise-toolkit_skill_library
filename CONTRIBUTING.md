@@ -44,7 +44,7 @@ Fill in the PR template. CI runs Gate 1. Your team's CODEOWNERS are auto-request
 |---|---|
 | `peer-reviewed` | Ask a teammate to run your evals and score the rubric in the PR |
 | `verified` | Ask a reviewer from **another team** to do the same on **their** Claude account; add a 2nd maintainer |
-| `certified` | Use the skill in a `workflows/*.md` on real work, log the run, request Council review |
+| `certified` | Open a **Certification request** issue; a domain Expert Reviewer (from `standards/experts.yaml`) comments `/approve`; add `expert_signoff` to `skill.yaml` in a PR |
 
 The reviewer records the result in your `skill.yaml` `verification:` block; the validator checks it meets the bar.
 
@@ -52,4 +52,4 @@ The reviewer records the result in your `skill.yaml` `verification:` block; the 
 Open a PR; the owner + domain CODEOWNERS review. MAJOR changes (I/O contract) must notify `composes_with.downstream` owners.
 
 ## Questions
-Open a discussion or ping the Skill Council in the program channel.
+Open an issue, or tag your domain's Expert Reviewer (`standards/experts.yaml`).

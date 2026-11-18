@@ -1,0 +1,14 @@
+# Expert Reviewers: who can give the `certified` green light, per domain.
+# An expert can't certify a skill they own or maintain.
+# Changing this file needs an existing expert's approval (CODEOWNERS: /standards/).
+# Replace the placeholders with real GitHub handles.
+experts:
+  GIT:
+    - "@git-expert-handle"
+  Science:
+    - "@science-expert-handle"
+  Solution_Management:
+    - "@solution-mgmt-expert-handle"
+
+# Comment an expert must post on the certification issue
+approve_command: "/approve"

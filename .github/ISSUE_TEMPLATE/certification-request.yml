@@ -1,0 +1,50 @@
+name: Certification request
+description: Ask a domain Expert Reviewer to green-light a Verified skill for `certified`
+title: "[certify] <domain>/<skill-id> v<version>"
+labels: ["certification-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Expert:** review the skill, then comment **`/approve`** on a line of its own to give the green light,
+        or **`/changes`** followed by what needs fixing. You can't certify a skill you own or maintain.
+        Experts are listed in `standards/experts.yaml`.
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      options: [GIT, Science, Solution_Management]
+    validations: {required: true}
+  - type: input
+    id: skill
+    attributes: {label: Skill path and version, placeholder: "Science/foundation-model-finetune v0.2.0"}
+    validations: {required: true}
+  - type: input
+    id: expert
+    attributes: {label: Requested expert (GitHub handle), placeholder: "@science-expert-handle"}
+    validations: {required: true}
+  - type: input
+    id: verified_pr
+    attributes: {label: Link to the PR that made it Verified}
+    validations: {required: true}
+  - type: textarea
+    id: evals
+    attributes:
+      label: Eval results (accounts, pass rates)
+      placeholder: "account A: 13/14 · account B: 14/14"
+    validations: {required: true}
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence of real use
+      description: A project run, report, release, or workflow run log entry. Links are best.
+    validations: {required: true}
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Owner checklist
+      options:
+        - label: Validator passes on main and status is currently `verified`
+          required: true
+        - label: No secrets, PII or partner-restricted data in the skill folder
+          required: true

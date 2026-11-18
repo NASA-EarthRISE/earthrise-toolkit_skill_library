@@ -2,7 +2,7 @@
 
 Skills that make EarthRISE code **reproducible, reviewable, deployable and shareable**.
 
-**Team CODEOWNERS:** `@NASA-EarthRISE/git-team` · **Council rep:** _TBD_
+**Team CODEOWNERS:** `@NASA-EarthRISE/git-team` · **Expert Reviewer:** see [`standards/experts.yaml`](../standards/experts.yaml)
 
 ## What belongs here
 | Area | Example skills (✅ = exists) |

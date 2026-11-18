@@ -5,8 +5,8 @@
 /Science/              @NASA-EarthRISE/science-team
 /Solution_Management/  @NASA-EarthRISE/solution-management
 
-# Shared standards need the Skill Council
-/standards/            @NASA-EarthRISE/skill-council
-/workflows/            @NASA-EarthRISE/skill-council
+# Shared standards need an Expert Reviewer
+/standards/            @NASA-EarthRISE/skill-experts
+/workflows/            @NASA-EarthRISE/skill-experts
 /scripts/              @NASA-EarthRISE/git-team
 /.github/              @NASA-EarthRISE/git-team

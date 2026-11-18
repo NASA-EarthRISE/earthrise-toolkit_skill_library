@@ -10,7 +10,7 @@ Copy [`_template.md`](_template.md). Each workflow must:
 2. List steps as `skill-id` (team) → artifact handed off.
 3. Name a **hand-off owner** per step (a person or role on that team).
 4. Have every hand-off artifact type exist in `standards/ARTIFACT_TYPES.md`.
-5. Record at least one **run log** entry before skills in it can be `certified`.
+5. Record a **run log** entry each time it's used on real work (good evidence for a certification request).
 
 ## Workflows
 | Workflow | Teams | Status |

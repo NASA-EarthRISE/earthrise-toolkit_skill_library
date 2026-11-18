@@ -2,7 +2,7 @@
 
 Skills that encode the program's **scientific methods and standards**, so any team member (or partner) gets the same defensible result.
 
-**Team CODEOWNERS:** `@NASA-EarthRISE/science-team` · **Council rep:** _TBD_
+**Team CODEOWNERS:** `@NASA-EarthRISE/science-team` · **Expert Reviewer:** see [`standards/experts.yaml`](../standards/experts.yaml)
 
 ## What belongs here
 | Area | Example skills (✅ = exists) |

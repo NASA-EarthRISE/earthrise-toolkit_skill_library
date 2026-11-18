@@ -170,9 +170,19 @@ def validate(skill_dir: Path, types: set[str], all_ids: set[str]) -> tuple[list[
     if lvl >= LEVEL["certified"]:
         wf_hits = [w for w in (ROOT / "workflows").glob("*.md") if f"`{folder}`" in w.read_text()]
         if not wf_hits:
-            errs.append("certified requires the skill to appear in a workflows/*.md")
-        if not ver.get("council_signoff"):
-            errs.append("certified requires verification.council_signoff")
+            warns.append("certified skill is not used in any workflows/*.md (recommended)")
+        so = ver.get("expert_signoff") or {}
+        experts = (yaml.safe_load((ROOT / "standards" / "experts.yaml").read_text()) or {}).get("experts", {})
+        handle = so.get("handle")
+        if not (handle and so.get("issue") and so.get("date")):
+            errs.append("certified requires verification.expert_signoff {handle, issue, date}")
+        else:
+            if handle not in (experts.get(domain) or []):
+                errs.append(f"expert_signoff.handle {handle} is not a listed {domain} expert in standards/experts.yaml")
+            if handle == man.get("owner") or handle in (man.get("maintainers") or []):
+                errs.append("expert_signoff.handle must not be the skill's owner or a maintainer")
+            if not re.match(r"^https://github\.com/[^/]+/[^/]+/issues/\d+$", str(so["issue"])):
+                errs.append("expert_signoff.issue must be a GitHub issue URL")
     due = ver.get("review_due")
     if due and isinstance(due, (dt.date, str)):
         d = due if isinstance(due, dt.date) else dt.date.fromisoformat(str(due))

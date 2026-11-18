@@ -11,7 +11,7 @@ they can trust it. Badges are earned through automated checks + human review and
 | ![Draft](https://img.shields.io/badge/skill-draft-lightgrey) | `draft` | Passes the validator. Not reviewed. | Author + early testers |
 | ![Peer-Reviewed](https://img.shields.io/badge/skill-peer--reviewed-blue) | `peer-reviewed` | One in-domain reviewer scored ≥ 70 on the rubric; evals exist and pass ≥ 80% | Own team |
 | ![Verified](https://img.shields.io/badge/skill-verified-brightgreen) | `verified` | + one **cross-domain** reviewer; rubric ≥ 85; evals pass ≥ 90% on **two different Claude accounts**; ≥ 2 maintainers | Whole program |
-| ![Certified](https://img.shields.io/badge/skill-program--certified-gold) | `certified` | + used in ≥ 1 published cross-team workflow on real work; signed off by the Skill Council | Program + partners |
+| ![Certified](https://img.shields.io/badge/skill-program--certified-gold) | `certified` | + an approved **Expert Reviewer** (not an owner/maintainer) gives the green light on a certification issue | Program + partners |
 | ![Stale](https://img.shields.io/badge/skill-stale-orange) | *(computed)* | `review_due` date has passed. Treated as one level lower until re-reviewed | — |
 | ![Deprecated](https://img.shields.io/badge/skill-deprecated-red) | `deprecated` | Superseded or unsafe. Kept for history; points to replacement | Nobody (read-only) |
 
@@ -20,8 +20,9 @@ they can trust it. Badges are earned through automated checks + human review and
 ## 2. The pipeline
 
 ```
- author PR ──► [1 Automated gate] ──► [2 Domain review] ──► [3 Cross-domain review] ──► [4 Council sign-off]
+ author PR ──► [1 Automated gate] ──► [2 Domain review] ──► [3 Cross-domain review] ──► [4 Expert green light]
                  validator + CI          → peer-reviewed        → verified                  → certified
+                                                                                          (GitHub issue + /approve)
 ```
 
 ### Gate 1 — Automated (every PR, required to merge)
@@ -38,9 +39,20 @@ they can trust it. Badges are earned through automated checks + human review and
 - Reviewer from a **different** team runs the evals on their own Claude account (proves portability) and reviews the I/O contract and README for clarity to an outsider.
 - Needs rubric **≥ 85**, eval pass **≥ 90%** on both accounts, **≥ 2 maintainers**.
 
-### Gate 4 — Skill Council → `certified`
-- The Skill Council (one rep per team + the Geo-AI Working Group lead) meets monthly.
-- Requires: the skill is a step in a merged `workflows/*.md` that has been run on real project work, with a short evidence note (link to the outcome, issue or report).
+### Gate 4 — Expert green light → `certified` (async, via GitHub issue)
+No meetings. One expert reviews and approves on a GitHub issue.
+
+1. Owner opens a **Certification request** issue (`.github/ISSUE_TEMPLATE/certification-request.yml`) with links to the Verified PR, eval results, and evidence of real use (a run, report, or workflow run log).
+2. An **Expert Reviewer** for the skill's domain, listed in [`experts.yaml`](experts.yaml), reviews the skill end to end (runs the evals, reads the outputs, checks the method is sound and current).
+3. The expert comments **`/approve`** on the issue (or **`/changes`** with what to fix). Discussion stays on the issue.
+4. Owner opens a PR setting `status: certified` and:
+   ```yaml
+   verification:
+     expert_signoff: {handle: "@expert", issue: "https://github.com/NASA-EarthRISE/earthrise-toolkit_skill_library/issues/42", date: 2026-12-01}
+   ```
+5. CI (`scripts/verify_signoffs.py`) confirms the issue exists, the handle is a listed expert for that domain and not an owner/maintainer, and that the expert actually commented `/approve`. Then the PR can merge.
+
+Being a step in a `workflows/*.md` is recommended (the validator warns if not), not required.
 
 ## 3. Review rubric (100 points)
 
@@ -105,7 +117,7 @@ verification:
 |---|---|
 | `review_due` passes (6 months for Verified/Certified, 12 for Peer-Reviewed) | Shown as **stale**; treated one level lower |
 | MAJOR version bump | Drops one level until the relevant gate is re-run |
-| Owner leaves / no maintainer activity for 6 months | Council reassigns or deprecates |
+| Owner leaves / no maintainer activity for 6 months | A domain expert reassigns or deprecates (via issue) |
 | Eval failure reported by a user (issue labeled `skill-regression`) | Owner has 30 days to fix or the badge drops one level |
 | Security / data-handling issue | Immediately `deprecated` until fixed |
 
@@ -117,4 +129,4 @@ verification:
 | Maintainer | ≥ 1 besides owner (for Verified+) | Backup owner; reviews issues |
 | Domain reviewer | Team CODEOWNERS | Gate 2 |
 | Cross-domain reviewer | Any other team's CODEOWNER | Gate 3 |
-| Skill Council | GIT rep, Science rep, Solution Management rep, Geo-AI WG lead | Gate 4, artifact-type vocabulary, disputes, deprecations |
+| Expert Reviewer | Named per domain in `standards/experts.yaml` | Gate 4 green light via issue; deprecations; disputes in their domain |
