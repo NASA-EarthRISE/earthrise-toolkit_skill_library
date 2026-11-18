@@ -1,0 +1,36 @@
+# PINECONe Earth Engine stage config -> scripts/run_pinecone.py
+# Validate without touching GEE:  python scripts/run_pinecone.py --config config.yaml --out results/ --check
+gee_project: your-gee-cloud-project        # passed to ee.Initialize(project=...); omit to use default
+
+aois:                                       # name -> GEE FeatureCollection id OR local .geojson (EPSG:4326)
+  EIA_CS1: projects/servir-sco-assets/assets/Rx_Fire/Vector_Data/EIA_CS1
+  EIA_CS2: projects/servir-sco-assets/assets/Rx_Fire/Vector_Data/EIA_CS2
+  EIA_CS3: projects/servir-sco-assets/assets/Rx_Fire/Vector_Data/EIA_CS3
+  # MyPark: inputs/my_park_aoi.geojson
+
+focal_species:
+  layer: projects/servir-sco-assets/assets/Rx_Fire/EO_Inputs/LEO_extantLLP_significance
+  threshold: 0                              # pixels > threshold = species
+  name: Longleaf Pine (LLP)
+  suffix: LLP                               # zones become <AOI>_LLP and <AOI>_NonLLP
+
+biomass:                                    # Script 1
+  product: esa_cci_agb                      # esa_cci_agb | gedi_l4b | whrc
+  year: 2019
+  vectorize_scale: 30
+  reduce_scale: 100
+
+emissions:                                  # Script 2 (always ESA-CCI AGB + AGB_DIFF QF/SD)
+  pre:  [2018-01-01, 2018-12-31]
+  post: [2019-01-01, 2019-12-31]
+  resolution: 100
+  quality_filter: true                      # drop AGB_DIFF_QF == 3 (improbable change)
+  carbon_fraction: 0.51
+
+water_yield:                                # Script 4 (PRISM ppt - MODIS MOD16A2GF ET)
+  enabled: true
+  start: 2019-03-20
+  end: 2020-03-20
+  price_per_kl: 0.018
+  et_scale_factor: 0.1
+  scale: 500

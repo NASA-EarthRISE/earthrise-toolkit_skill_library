@@ -114,6 +114,48 @@
       "path": "Science/foundation-model-finetune"
     },
     {
+      "id": "pinecone-rx-fire-valuation",
+      "title": "PINECONe Prescribed-Fire Valuation (Biomass, Carbon, Water, TEV)",
+      "domain": "Science",
+      "version": "0.1.0",
+      "status": "draft",
+      "stale": false,
+      "owner": "@MayerT1",
+      "summary": "PINECONe GEE biomass/carbon/water stages + Monte Carlo Total Economic Value for prescribed-fire vs wildfire scenarios.",
+      "tags": [
+        "pinecone",
+        "prescribed-fire",
+        "wildfire",
+        "carbon",
+        "biomass",
+        "ecosystem-services",
+        "economics",
+        "tev",
+        "monte-carlo",
+        "longleaf-pine",
+        "earth-engine"
+      ],
+      "inputs": [
+        "aoi.geojson",
+        "dataset.vector",
+        "dataset.raster"
+      ],
+      "outputs": [
+        "metrics.json",
+        "report.md",
+        "figure.png"
+      ],
+      "composes_with": {
+        "upstream": [],
+        "downstream": [
+          "partner-status-brief",
+          "reproducible-release"
+        ]
+      },
+      "data_sensitivity": "internal",
+      "path": "Science/pinecone-rx-fire-valuation"
+    },
+    {
       "id": "partner-status-brief",
       "title": "Partner Status Brief",
       "domain": "Solution_Management",
@@ -183,6 +225,21 @@
     },
     {
       "from": "foundation-model-finetune",
+      "artifact": "report.md",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "metrics.json",
+      "to": "partner-status-brief"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
+      "artifact": "metrics.json",
+      "to": "reproducible-release"
+    },
+    {
+      "from": "pinecone-rx-fire-valuation",
       "artifact": "report.md",
       "to": "partner-status-brief"
     },
