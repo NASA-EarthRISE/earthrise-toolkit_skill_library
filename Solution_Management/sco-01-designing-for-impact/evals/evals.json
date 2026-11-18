@@ -1,0 +1,42 @@
+{
+  "skill": "sco-01-designing-for-impact",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Build a results framework for our NASA soil-moisture drought tool for state ag extension.",
+      "files": [],
+      "expectations": [
+        "Produces Impact / Outcome long / Outcome short / Output / Input table",
+        "Every outcome is a behavior or decision change by a user type",
+        "Assumption record has monitor and action-if-fails per link"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Help us write an if/then statement for a hail damage insurance product.",
+      "files": [],
+      "expectations": [
+        "Uses 'If we ___, then users will ___, then ___ will improve.' form"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Results framework please, outcome: 'a dashboard is delivered'.",
+      "files": [],
+      "expectations": [
+        "Pushes back that a delivered dashboard is an output, not an outcome"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Write a one-page status brief for our partner.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to partner-status-brief)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-07-user-centered-design
+title: User-Centered Design
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: Builds decision-anchored personas and runs the four-step UCD method through validation under decision conditions.
+tags:
+- ucd
+- personas
+- usability
+- design-requirements
+- sco-toolkit
+inputs:
+- type: partner.request
+  description: Needs and decisions.
+- type: report.md
+  description: Stakeholder map and ICA results.
+outputs:
+- type: report.md
+  description: Persona blocks (Steps 1–4), design requirements, hypotheses, validation metrics, plus a YAML patch to `solution-profile.yaml` (schema in `references/solution-profile.template.yaml`).
+composes_with:
+  upstream:
+  - sco-04-stakeholder-mapping
+  - sco-05-needs-assessment
+  - sco-06-information-chain-analysis
+  - sco-01-designing-for-impact
+  downstream:
+  - sco-08-technical-requirements
+  - sco-10-implementation-monitoring-plan
+  - sco-12-meaningful-metrics
+  - sco-11-adoption-sustainability
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

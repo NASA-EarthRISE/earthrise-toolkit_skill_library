@@ -1,0 +1,34 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-00-trust-marker
+title: TRUST Marker for Co-development
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: Scores co-development depth on five TRUST dimensions (0–4) with evidence, targets, and gap-closing actions.
+tags:
+- trust-marker
+- co-development
+- self-assessment
+- reflection
+- sco-toolkit
+inputs:
+- type: project.plan
+  description: Solution profile or plan with engagement evidence.
+- type: report.md
+  description: Optional engagement or activity reports used as evidence.
+outputs:
+- type: report.md
+  description: Scored TRUST matrix with evidence, targets, gap actions, plus a YAML patch to `solution-profile.yaml` (schema in `references/solution-profile.template.yaml`).
+composes_with:
+  upstream: []
+  downstream:
+  - sco-toolkit-orchestrator
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

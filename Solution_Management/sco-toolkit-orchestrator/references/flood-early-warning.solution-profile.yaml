@@ -1,0 +1,58 @@
+# Example profile built from the toolkit's own flood-evacuation examples (Tools 6 and 12).
+# Use it to test the agents: paste into a chat and type `/status` or `/next`.
+meta:
+  solution_title: "District Flood Early Warning (example)"
+  solution_manager: "<<name>>"
+  organization: "<<org>>"
+  phase: 2
+  arl_current: 4
+  arl_target: 7
+  last_updated: "2026-11-13"
+  tools_completed: ["01-designing-for-impact", "06-information-chain-analysis"]
+
+impact:
+  need: "District officials lack timely, actionable flood alerts to trigger preparedness measures."
+  why_it_matters: "Delayed evacuation increases risk to life."
+  problem_statement: "Slow, inaccessible flood alerts delay district preparedness and household evacuation."
+  if_then: "If we co-design automated flood alerts with district DRM and local NGOs, then districts activate preparedness 24–72 h before peak flooding, then lives and livelihoods are protected."
+  results_framework:
+    inputs: ["Co-design sessions with disaster management agencies", "Needs assessment with district DRM"]
+    outputs: ["Flood forecast and alert bulletin", "Trained local officials"]
+    outcomes_short_term: ["Local officials use updated risk maps in decisions"]
+    outcomes_long_term: ["Institutions report faster evacuation and resource mobilization"]
+    impact: ["People evacuated before floods; reduced loss of life"]
+
+decision_pathways:
+  - id: ICA-1
+    decision: "Activate district flood preparedness measures"
+    decision_maker: "District Disaster Management Committee"
+    timing: "24–72 hours before peak flooding"
+    beneficiary: "Households in flood-prone districts"
+    products: ["Flood forecast and alert bulletin"]
+    consequence_of_failure: "Delayed evacuation increases risk to life"
+    links:
+      - {id: C1, from: "National Meteorological Org", to: "National DRM", input: "Flood forecast data", interpretation: "Determine national alert level"}
+      - {id: C2, from: "National DRM", to: "District DRM", input: "Alert level", interpretation: "Evacuation thresholds met?"}
+      - {id: C3, from: "District DRM", to: "Local NGO", input: "Evacuation decision and guidance", interpretation: "Translate into local instructions/channels"}
+      - {id: C4, from: "Local NGO", to: "Households", input: "Evacuation instruction", interpretation: "Evacuate or prepare"}
+    priority_issues:
+      - {link: C4, issue: "WhatsApp excludes elderly residents", type: access, priority: high}
+      - {link: C2, issue: "Alerts translated too slowly on weekends", type: delay, priority: medium}
+    actions:
+      - {link: C2, type: delivery, action: "Automate SMS alerts to district leads", owner: "National DRM", phase: pilot}
+      - {link: C4, type: delivery, action: "Radio announcements targeting elderly households", owner: "Local NGO", phase: pilot}
+      - {link: C4, type: engagement, action: "Train community leaders on key messages", owner: "Local NGO", phase: co-design}
+
+assumptions:
+  - {id: A-01, link: C3, assumption: "District staff act on alerts immediately", why_it_matters: "No evacuation if false", monitor: "Post-event staff meetings", action_if_fails: "Revisit thresholds and SOPs", source_tool: "06", source: STAKEHOLDER}
+  - {id: A-02, link: C4, assumption: "NGOs disseminate messages promptly", why_it_matters: "Late information", monitor: "Periodic randomized checks", action_if_fails: "Add direct SMS channel", source_tool: "06", source: STAKEHOLDER}
+
+indicators:
+  - {id: I-01, indicator: "Share of local institutions with improved flood-risk management capacity", type: Outcome, baseline: "2/10", target: "9/10", data_source: "Case studies, KIIs, post-training tests", frequency: "Annual", unit: "%"}
+  - {id: I-02, indicator: "# institutions reporting faster evacuation and resource mobilization", type: Outcome, baseline: "0", target: "8", data_source: "Feedback forms, after-action reviews", unit: "#"}
+  - {id: I-03, indicator: "# local officials using updated risk maps in decisions", type: Outcome, baseline: "0", target: "10", data_source: "Surveys, bulletin reviews", frequency: "Annual", unit: "#"}
+  - {id: I-04, indicator: "# co-design sessions with disaster management agencies", type: Input, data_source: "Session reports", unit: "#"}
+
+open_items:
+  - "Run 04 Stakeholder Mapping to confirm partner readiness and engagement strategy"
+  - "Baseline for I-04 not yet set"

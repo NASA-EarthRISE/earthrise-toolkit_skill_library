@@ -1,0 +1,42 @@
+{
+  "skill": "sco-00-trust-marker",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Score our TRUST Marker. We've held two stakeholder interviews and nothing else.",
+      "files": [],
+      "expectations": [
+        "Trust-building scored 1 with interview evidence",
+        "Every gap has an action and a named sco- skill"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Do a co-development self-assessment for our project baseline.",
+      "files": [],
+      "expectations": [
+        "All five dimensions scored with evidence or marked as no evidence",
+        "Asks for realistic targets"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "We plan to co-design with partners next month — does that make User Partnership a 2?",
+      "files": [],
+      "expectations": [
+        "Scores current level lower and notes 'planned' rather than awarding level 2"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Assess our Application Readiness Level for the GEDI model.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to not a TRUST assessment)"
+      ]
+    }
+  ]
+}

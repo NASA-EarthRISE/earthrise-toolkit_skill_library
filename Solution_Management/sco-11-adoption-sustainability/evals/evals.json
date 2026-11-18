@@ -1,0 +1,41 @@
+{
+  "skill": "sco-11-adoption-sustainability",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Draft our adoption and sustainability plan for handing the flood tool to the district DRM.",
+      "files": [],
+      "expectations": [
+        "Includes sections 1–8 with exact template table rows",
+        "Adoption goals are time-bound"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "What happens if Landsat data changes or our developer leaves?",
+      "files": [],
+      "expectations": [
+        "Fills data source change and cross-training rows with mitigations"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Write the exit plan.",
+      "files": [],
+      "expectations": [
+        "Exit table has criteria, archive steps, comms plan, migration path"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Write our DAAC archiving plan.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to sco-09-data-governance-storage)"
+      ]
+    }
+  ]
+}

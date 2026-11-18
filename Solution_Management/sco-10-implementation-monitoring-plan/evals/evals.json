@@ -1,0 +1,42 @@
+{
+  "skill": "sco-10-implementation-monitoring-plan",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Assemble our SIIMP from this solution profile.",
+      "files": [],
+      "expectations": [
+        "Prints a coverage table for sections 1–15",
+        "Offers to run missing owning skills by id"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Build budget tables: 0.5 FTE scientist at $X, cloud $2,000/quarter, 10% center tax.",
+      "files": [],
+      "expectations": [
+        "Asks for the FTE rate instead of inventing it",
+        "Sub-Total, Center Tax, and Annual Total computed consistently"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Make a Gantt chart for our co-design workshops and pilot.",
+      "files": [],
+      "expectations": [
+        "Produces schedule table and Mermaid gantt"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Write a one-page partner update.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to partner-status-brief)"
+      ]
+    }
+  ]
+}

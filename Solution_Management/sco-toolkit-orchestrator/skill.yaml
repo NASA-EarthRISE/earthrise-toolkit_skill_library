@@ -1,0 +1,47 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-toolkit-orchestrator
+title: Solution Co-Development Toolkit — Orchestrator
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: Routes Earth Action solution teams to the right Co-Development Toolkit skill and tracks progress in a shared solution profile.
+tags:
+- co-development
+- toolkit
+- earth-action
+- routing
+- solution-profile
+- sco-toolkit
+inputs:
+- type: partner.request
+  description: Solution description, partner need, phase/ARL (or an existing solution-profile.yaml).
+outputs:
+- type: project.plan
+  description: Progress status across toolkit tools and recommended next tool, plus a YAML patch to `solution-profile.yaml` (schema in `references/solution-profile.template.yaml`).
+- type: issue.list
+  description: Open items and AI-drafted rows awaiting stakeholder validation.
+composes_with:
+  upstream: []
+  downstream:
+  - sco-00-trust-marker
+  - sco-01-designing-for-impact
+  - sco-02-capturing-communicating-impact
+  - sco-03-economic-impact-assessment
+  - sco-04-stakeholder-mapping
+  - sco-05-needs-assessment
+  - sco-06-information-chain-analysis
+  - sco-07-user-centered-design
+  - sco-08-technical-requirements
+  - sco-09-data-governance-storage
+  - sco-10-implementation-monitoring-plan
+  - sco-11-adoption-sustainability
+  - sco-12-meaningful-metrics
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

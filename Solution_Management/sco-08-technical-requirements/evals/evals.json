@@ -1,0 +1,42 @@
+{
+  "skill": "sco-08-technical-requirements",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Fill the technical requirements template for a daily flood extent product for district officials.",
+      "files": [],
+      "expectations": [
+        "Includes both template tables with exact row labels",
+        "Data source table has access, resolution, latency, processing level"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "What data sources meet 30 m, weekly, under 48 h latency?",
+      "files": [],
+      "expectations": [
+        "Marks suggestions AI-DRAFT and asks user to verify specs",
+        "Flags gaps where no source meets a requirement"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "Define our MVP.",
+      "files": [],
+      "expectations": [
+        "MVP is one sentence tied to a persona or need"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "Write our data management plan and licensing.",
+      "expectations": [
+        "Skill is NOT triggered (belongs to sco-09-data-governance-storage)"
+      ]
+    }
+  ]
+}

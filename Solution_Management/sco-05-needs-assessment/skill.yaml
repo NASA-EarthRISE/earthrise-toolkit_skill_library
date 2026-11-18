@@ -1,0 +1,41 @@
+# EarthRISE skill manifest — generated from the AI-ready Solution Co-Development Toolkit.
+id: sco-05-needs-assessment
+title: Needs Assessment
+domain: Solution_Management
+version: 0.1.0
+owner: '@MayerT1'
+maintainers:
+- '@MayerT1'
+status: draft
+summary: Captures, codes, themes, and prioritizes user needs per user group and translates them into draft EO requirements.
+tags:
+- needs-assessment
+- user-research
+- interviews
+- requirements
+- sco-toolkit
+inputs:
+- type: report.md
+  description: Stakeholder map and/or interview notes, survey results.
+- type: partner.request
+  description: Partner need if no stakeholder map.
+outputs:
+- type: partner.request
+  description: Prioritized needs with decision affected, constraints, and spatial/temporal/latency/format requirements.
+- type: report.md
+  description: Step1–Step7 tables, interview guide, summary with CSV, plus a YAML patch to `solution-profile.yaml` (schema in `references/solution-profile.template.yaml`).
+composes_with:
+  upstream:
+  - sco-04-stakeholder-mapping
+  downstream:
+  - sco-01-designing-for-impact
+  - sco-06-information-chain-analysis
+  - sco-07-user-centered-design
+  - sco-08-technical-requirements
+  - sco-03-economic-impact-assessment
+requires: []
+data_sensitivity: internal
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null
