@@ -1,0 +1,38 @@
+# PINECONe TEV Monte Carlo parameters -> scripts/run_tev.py
+# [mean, std] = sampled from Normal(mean, std) each draw; scalar = fixed.
+# Zone keys MUST match stage_stats.json biomass keys (<AOI>_<suffix>).
+carbon_credit_price: 10.0      # $/t CO2e, multiplies the CO2 change from Script 2
+num_simulations: 10000
+random_seed: 42
+
+case_acres:                    # zones without acres are refused (PINECONe would silently skip them)
+  EIA_CS1_LLP: 651.06
+  EIA_CS2_LLP: 937.02
+  EIA_CS3_LLP: 544.03
+
+zones:
+  EIA_CS1_LLP:                 # severe wildfire
+    E_Pt: [7.50, 1.0]          # stumpage price $/ton
+    g: [375, 50]               # regeneration cost $/acre
+    endangered_species_WTP: [1.337, 1]   # $/acre (13.37 x 0.1)
+    R_t_lease: [50, 20, 0, 0, 0]         # $/acre/yr, years 1..T_lease
+    T_lease: 5
+    r_lease: 0.06              # discount rate
+    epsilon_t: 0               # price shock added to E_Pt
+    # water_quality_value: [110, 5]      # optional override of Script 4 $/acre
+  EIA_CS2_LLP:                 # mitigated wildfire
+    E_Pt: [21, 3]
+    g: [200, 30]
+    endangered_species_WTP: [6.685, 2]
+    R_t_lease: [200, 100, 50, 20, 10]
+    T_lease: 5
+    r_lease: 0.055
+    epsilon_t: 0
+  EIA_CS3_LLP:                 # prescribed burn / healthy
+    E_Pt: [36, 5]
+    g: [50, 10]
+    endangered_species_WTP: [13.37, 3]
+    R_t_lease: [700, 700, 700, 700, 700]
+    T_lease: 5
+    r_lease: 0.05
+    epsilon_t: 0

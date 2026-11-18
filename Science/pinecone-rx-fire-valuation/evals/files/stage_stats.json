@@ -1,0 +1,23 @@
+{
+  "_note": "SYNTHETIC fixture for evals and CI. Not Gulf State Park results. Shape matches run_pinecone.py output.",
+  "biomass": {
+    "EIA_CS1_LLP":    {"AGB_per_acre_tons": 18.4, "AGB_StdDev_per_acre_tons": 2.1, "total_area_acres": 651.06},
+    "EIA_CS1_NonLLP": {"AGB_per_acre_tons": 22.0, "AGB_StdDev_per_acre_tons": 2.5, "total_area_acres": 410.2},
+    "EIA_CS2_LLP":    {"AGB_per_acre_tons": 31.7, "AGB_StdDev_per_acre_tons": 3.0, "total_area_acres": 937.02},
+    "EIA_CS2_NonLLP": {"AGB_per_acre_tons": 29.5, "AGB_StdDev_per_acre_tons": 2.8, "total_area_acres": 520.9},
+    "EIA_CS3_LLP":    {"AGB_per_acre_tons": 44.9, "AGB_StdDev_per_acre_tons": 3.6, "total_area_acres": 544.03},
+    "EIA_CS3_NonLLP": {"AGB_per_acre_tons": 35.1, "AGB_StdDev_per_acre_tons": 3.1, "total_area_acres": 300.4}
+  },
+  "emissions": {
+    "EIA_CS1_LLP": {"CO2_mean_tons_per_acre": -95.0, "CO2_std_tons_per_acre": 30.0},
+    "EIA_CS2_LLP": {"CO2_mean_tons_per_acre": -20.0, "CO2_std_tons_per_acre": 12.0},
+    "EIA_CS3_LLP": {"CO2_mean_tons_per_acre": 6.0,   "CO2_std_tons_per_acre": 4.0}
+  },
+  "water_yield": {
+    "EIA_CS1": {"water_yield_per_acre_usd": 112.4, "water_yield_std_per_acre_usd": 3.1},
+    "EIA_CS2": null,
+    "EIA_CS3": {"water_yield_per_acre_usd": 121.8, "water_yield_std_per_acre_usd": 2.7}
+  },
+  "flags": ["water_yield_failed:EIA_CS2: No ET data available for the specified date range and area"],
+  "provenance": {"species_suffix": "LLP", "skill": "pinecone-rx-fire-valuation", "skill_version": "0.1.0"}
+}

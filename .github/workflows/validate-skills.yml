@@ -36,3 +36,11 @@ jobs:
             --areas Science/classification-accuracy-assessment/evals/files/areas.csv \
             --out /tmp/oa --unit pixels
           python -c "import json;m=json.load(open('/tmp/oa/metrics.json'))['metrics'];assert abs(m['overall_accuracy']['value']-0.947)<0.001"
+      - name: PINECONe TEV matches pinecone-fire on fixture
+        run: |
+          pip install pinecone-fire pyyaml
+          python Science/pinecone-rx-fire-valuation/scripts/run_tev.py \
+            --stats Science/pinecone-rx-fire-valuation/evals/files/stage_stats.json \
+            --params Science/pinecone-rx-fire-valuation/evals/files/tev_params.yaml \
+            --out /tmp/tev --no-figures
+          python -c "import json;m=json.load(open('/tmp/tev/metrics.json'))['metrics'];assert abs(m['EIA_CS3_LLP.tev_usd']['value']-2608351.53)<1"

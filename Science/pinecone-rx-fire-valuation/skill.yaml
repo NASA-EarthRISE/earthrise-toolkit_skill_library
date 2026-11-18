@@ -1,0 +1,37 @@
+id: pinecone-rx-fire-valuation
+title: PINECONe Prescribed-Fire Valuation (Biomass, Carbon, Water, TEV)
+domain: Science
+version: 0.1.0
+owner: "@MayerT1"
+maintainers:
+  - "@MayerT1"
+status: draft
+summary: PINECONe GEE biomass/carbon/water stages + Monte Carlo Total Economic Value for prescribed-fire vs wildfire scenarios.
+tags: [pinecone, prescribed-fire, wildfire, carbon, biomass, ecosystem-services, economics, tev, monte-carlo, longleaf-pine, earth-engine]
+
+inputs:
+  - type: aoi.geojson
+    description: One AOI per scenario (GeoJSON, EPSG:4326) — or a GEE FeatureCollection id (dataset.vector).
+  - type: dataset.vector
+    description: GEE FeatureCollection ids for scenario AOIs (alternative to aoi.geojson).
+  - type: dataset.raster
+    description: Focal-species layer (GEE image id), values > threshold = species.
+outputs:
+  - type: metrics.json
+    description: Mean TEV and per-acre TEV per scenario with 95% simulation interval, components, scenario comparison, flags.
+  - type: report.md
+    description: Purpose/Methods/Results/Limitations valuation section.
+  - type: figure.png
+    description: TEV distribution and boxplot figures with .txt captions.
+
+composes_with:
+  upstream: []
+  downstream: [partner-status-brief, reproducible-release]
+
+requires: ["python>=3.9", "pinecone-fire>=0.1.0", "earthengine-api", "numpy", "pandas", "matplotlib", "pyyaml"]
+data_sensitivity: internal
+
+verification:
+  reviewers: []
+  last_reviewed: null
+  review_due: null

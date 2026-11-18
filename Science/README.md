@@ -10,7 +10,7 @@ Skills that encode the program's **scientific methods and standards**, so any te
 | Validation & uncertainty | ✅ `classification-accuracy-assessment`, `sample-design-planner` |
 | Remote sensing preprocessing | `cloud-mask-composite`, `sar-preprocess` |
 | Modeling | ✅ `foundation-model-finetune`, `rf-baseline-classifier` |
-| Forest structure / ecosystems | `gedi-canopy-height-extract`, `ecosystem-service-valuation` |
+| Forest structure / ecosystems | ✅ `pinecone-rx-fire-valuation`, `gedi-canopy-height-extract`, `ecosystem-service-valuation` |
 | Hydrology & hazards | `flood-forecast-evaluate`, `surface-water-map` |
 | Science writing | `methods-section-write`, `figure-caption-standard` |
 

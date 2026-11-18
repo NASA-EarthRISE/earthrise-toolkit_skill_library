@@ -1,0 +1,64 @@
+{
+  "skill": "pinecone-rx-fire-valuation",
+  "evals": [
+    {
+      "id": "pos-01",
+      "type": "positive",
+      "prompt": "Here are the cached PINECONe stage stats and our TEV parameters. Run the Total Economic Value for the three EIA cases and give me the results with uncertainty.",
+      "files": ["evals/files/stage_stats.json", "evals/files/tev_params.yaml"],
+      "expectations": [
+        "Runs scripts/run_tev.py rather than computing TEV by hand or re-implementing the model",
+        "Reports EIA_CS3_LLP mean TEV ~$2,608,352 with 95% interval ~$2,339,224 to ~$2,899,912",
+        "States 10,000 simulations, seed 42, carbon price $10/t",
+        "Flags that EIA_CS2_LLP water value is the $100/acre fallback, not a measurement",
+        "Writes metrics.json with skill and skill_version fields"
+      ]
+    },
+    {
+      "id": "pos-02",
+      "type": "positive",
+      "prompt": "Same stage stats, but what happens to the scenarios if the carbon credit price is $25 per ton instead of $10?",
+      "files": ["evals/files/stage_stats.json", "evals/files/tev_params.yaml"],
+      "expectations": [
+        "Changes only carbon_credit_price in a copy of tev_params.yaml and re-runs run_tev.py into a new output folder",
+        "Does not re-run the Earth Engine stage",
+        "Explains direction: CS1 and CS2 TEV fall (negative CO2 change = emissions), CS3 rises"
+      ]
+    },
+    {
+      "id": "pos-03",
+      "type": "positive",
+      "prompt": "I want to run PINECONe for a new longleaf pine park. I have a GeoJSON for burn and no-burn units and the LEO LLP layer in GEE. Set it up.",
+      "files": [],
+      "expectations": [
+        "Builds config.yaml from assets/config_template.yaml and runs run_pinecone.py --check before any GEE call",
+        "Asks for missing economic parameters and acres instead of silently using the Gulf State Park CS1-CS3 defaults",
+        "If no Earth Engine credentials are available, hands the user the run_pinecone.py command and asks for stage_stats.json back"
+      ]
+    },
+    {
+      "id": "pos-04",
+      "type": "positive",
+      "prompt": "Write up the PINECONe valuation as a methods and results section for the Gulf State Park report.",
+      "files": ["evals/files/stage_stats.json", "evals/files/tev_params.yaml"],
+      "expectations": [
+        "Produces report.md with Purpose, Methods, Results, Limitations using references/report_template.md",
+        "Every number in the report appears in metrics.json or report_draft.md",
+        "Limitations call the intervals simulation intervals and mention the water fallback and carbon resolution caveat",
+        "Cites the PINECONe Zenodo DOI 10.5281/zenodo.18419563"
+      ]
+    },
+    {
+      "id": "neg-01",
+      "type": "negative",
+      "prompt": "How accurate is my longleaf pine classification map? I have reference samples.",
+      "expectations": ["Skill is NOT triggered (belongs to classification-accuracy-assessment)"]
+    },
+    {
+      "id": "neg-02",
+      "type": "negative",
+      "prompt": "Set up a Pinecone vector database index for our RAG app.",
+      "expectations": ["Skill is NOT triggered (Pinecone vector DB, unrelated)"]
+    }
+  ]
+}
